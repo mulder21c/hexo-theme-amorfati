@@ -1,0 +1,9 @@
+//-
+  default css link
+link(rel="stylesheet" href="/css/style.css")
+
+//-
+  post-specific styles
+if is_post() && page.style
+  style.
+    !{page.style}

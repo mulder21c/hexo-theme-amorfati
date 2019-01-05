@@ -1,0 +1,38 @@
+/*
+  break points for responsive
+*/
+$breakpoints: (
+  'x-small': (min-width:480px),
+  'small': (min-width:736px),
+  'medium': (min-width:980px),
+  'large': (min-width:1280px),
+  'x-large': (min-width:1690px)
+) !default;
+
+/*
+  color set
+*/
+$primary-backgroundcolor: #fafafa;
+$white: #fff;
+$black: #140c18;
+$theme-color: #3F60A7;
+$muddy-color: #647983;
+$accent-color: #592248;
+
+/*
+  variables for fontsize
+*/
+$base-font-size: 16px;
+$heading-font-size-level-1: convertRem(48px);
+$heading-font-size-level-2: convertRem(36px);
+$heading-font-size-level-3: convertRem(26px);
+$heading-font-size-level-4: convertRem(20px);
+$heading-font-size-level-5: convertRem(18px);
+$heading-font-size-level-6: convertRem(16px);
+$smallest-font-size: convertRem(10px);
+$smaller-font-size: convertRem(12px);
+$small-font-size: convertRem(14px);
+$large-font-size: convertRem(18px);
+$larger-font-size: convertRem(20px);
+$largest-font-size: convertRem(24px);
+$jumbo-font-size: convertRem(30px);

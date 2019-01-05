@@ -1,0 +1,31 @@
+-
+  const definedFonts = ((extra) => {
+    let defaults = {
+      "Iropke Batang": "/fonts/iropkebatang/iropke-batang.css",
+      "Noto Sans KR": "/fonts/notosanskr/NotoSansKR.css",
+      "Font Awesome": "/fonts/fontawesome/fontawesome.css"
+    };
+    extra && extra.forEach((font) => {
+      defaults[font.family] = font.url
+    });
+    return defaults;
+  })(theme.webfonts.extraFonts);
+-
+  const families = theme.webfonts.uses.reduce((fonts, entry) => {
+    fonts += `"${entry}", `;
+    return fonts;
+  }, ``);
+-
+  const fontUrls = theme.webfonts.uses.reduce((urls, entry) => {
+    urls += `"${definedFonts[entry]}", `;
+    return urls;
+  }, ``);
+
+script(src="/js/webfontloader.js")
+script.
+  WebFont.load({
+    custom: {
+      families: [!{families.replace(/,+\s*$/, "")}],
+      urls: [!{fontUrls.replace(/,+\s*$/, "")}]
+    }
+  });

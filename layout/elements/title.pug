@@ -1,0 +1,14 @@
+-
+  const title = ((page, config) => {
+    let title;
+    if(is_home()) title = "Home";
+    if(is_post()) title = page.title;
+    if(is_archive()) title = `Archives`;
+    if(is_archive() && is_year()) title = `Archives: ${page.year}`;
+    if(is_archive() && is_month()) title = `Archives: ${["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][page.month - 1]} ${page.year}`;
+    if(is_tag()) title = `Tag: ${page.tag}`;
+    if(is_category()) title = `Category: ${page.category}`;
+    return `${title} - ${config.title}` ;
+  })(page, config);
+
+title= title

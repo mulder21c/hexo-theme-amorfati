@@ -1,0 +1,15 @@
+# Header
+menu:
+  Home: /
+  Archives: /archives
+
+# Images
+favicon: /images/favicon.png
+
+
+# web fonts
+webfonts:
+  uses: ['Iropke Batang', 'Noto Sans KR', 'Font Awesome']
+  extraFonts:
+  #  - family:
+  #    url:

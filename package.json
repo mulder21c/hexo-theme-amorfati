@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "preinstall": "cd ../../ && npm install --save-dev hexo-renderer-jade",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,7 +14,11 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.6.3"
   },
   "devDependencies": {
+    "autoprefixer": "^9.4.4",
+    "node-sass": "^4.11.0",
+    "postcss": "^7.0.7"
   }
 }

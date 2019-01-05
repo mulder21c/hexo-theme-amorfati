@@ -1,0 +1,60 @@
+html {
+  line-height: 1.6;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+abbr[title] {
+  border-bottom: 0;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  font: inherit;
+  line-height: inherit;
+  cursor: pointer;
+  color: inherit;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  appearance: none;
+  align-items: unset;
+}
+
+ul,
+ol,
+menu,
+dir {
+  margin: 0;
+  padding-left: 20px;
+}
+
+img {
+  max-width: 100%;
+}
