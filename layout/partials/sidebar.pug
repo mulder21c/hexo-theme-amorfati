@@ -1,0 +1,44 @@
+- const social = theme.profile && theme.profile.social;
+-
+  const hasSocial = Object.keys(social).reduce(
+    (cnt, item) =>  cnt += social[item] ? 1 : 0
+    , 0);
+
+.nav(aria-hidden="true")
+  nav#navigation.nav--container(role="menu" aria-labelledby="nav__heading")
+    h2#nav__heading.nav__heading Navigation
+
+    hr.nav__seperator
+    | !{list_menu(theme.menu, page.path)}
+
+    if site.categories.length
+      hr.nav__seperator
+      h3.nav__heading--sub Categories
+      | !{list_categories({show_count: false, show_current: true})}
+
+    if theme.links
+      hr.nav__seperator
+      h3.nav__heading--sub External links
+      | !{list_external_links(theme.links)}
+
+    if hasSocial
+      hr.nav__seperator
+      div.nav__sns__icon-wrapper
+        if social.github
+          a.nav__sns__icon(href=social.github target="_blank" aria-label="github")
+            span.fab.fa-github-square(aria-hidden="true")
+        if social.facebook
+          a.nav__sns__icon(href=social.facebook target="_blank" aria-label="facebook")
+            span.fab.fa-facebook-square(aria-hidden="true")
+        if social.instagram
+          a.nav__sns__icon(href=social.instagram target="_blank" aria-label="instagram")
+            span.fab.fa-instagram(aria-hidden="true")
+        if social.twitter
+          a.nav__sns__icon(href=social.twitter target="_blank" aria-label="twitter")
+            span.fab.fa-twitter-square(aria-hidden="true")
+        if social.linkedin
+          a.nav__sns__icon(href=social.linkedin target="_blank" aria-label="linkedin")
+            span.fab.fa-linkedin(aria-hidden="true")
+        if social.flickr
+          a.nav__sns__icon(href=social.flickr target="_blank" aria-label="flickr")
+            span.fab.fa-flickr(aria-hidden="true")

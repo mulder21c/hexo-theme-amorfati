@@ -1,0 +1,79 @@
+-
+  const metaLinks = ((url, path, config, page) => {
+    url = url.replace(/\/*index\.html$/,'').trim();
+    path = encodeURI(path).replace(/\/*index\.html$/,'').trim();
+
+    const baseUrl = config.url.replace(/\/$/, '').trim();
+    const archiveDir = config.archive_dir.replace(/^\/|\/$/g, '');
+    const categoryDir = config.category_dir.replace(/^\/|\/$/g, '');
+    const tagDir = config.tag_dir.replace(/^\/|\/$/g, '');
+    const PagingPattern = `((^page|(\/page))+\/[0-9]+)`;
+    const inPaging = new RegExp(PagingPattern).test(path);
+
+    let archivesUrl = null;   // for <link rel="archives" href="...">
+    let indexUrl = null;      // for <link rel="index" href="...">
+    let firstUrl = null;      // for <link rel="first" href="...">
+    let lastUrl = null;      // for <link rel="last" href="...">
+    let prevUrl = null;      // for <link rel="prev" href="...">
+    let nextUrl = null;      // for <link rel="next" href="...">
+    let canonical = null;
+
+    if(is_home()) {
+      canonical =`${baseUrl}/`;
+      archivesUrl = `${baseUrl}/${archiveDir}/`;
+    }
+
+    if(is_archive()) {
+      canonical = `${baseUrl}/${archiveDir}/`;
+
+      if(is_year()) {
+        indexUrl = `${canonical}/`;
+        canonical = `${canonical}${page.year}/`
+      }
+
+      if(is_month()) {
+        indexUrl = `${canonical}/`;
+        canonical = `${canonical}${page.month}/`
+      }
+    }
+
+    if(is_category()) {
+      canonical = `${baseUrl}/${categoryDir}/`;
+      indexUrl = `${canonical}/`;
+      canonical = `${canonical}${page.category}/`;
+    }
+
+    if(is_tag()) {
+      canonical = `${baseUrl}/${tagDir}/`;
+      indexUrl = `${canonical}/`;
+      canonical = `${canonical}${page.tag}/`;
+    }
+
+    if(inPaging) {
+      firstUrl = `${canonical}`;
+      lastUrl = `${canonical}page/${page.total}/`;
+      prevUrl = `${baseUrl}/${page.prev_link}`;
+      nextUrl = `${baseUrl}/${page.next_link}`;
+    }
+
+    url = url ? url.replace(/\/\//g, `/`) : url;
+    indexUrl = indexUrl ? indexUrl.replace(/\/\//g, `/`) : indexUrl;
+    archivesUrl = archivesUrl ? archivesUrl.replace(/\/\//g, `/`) : archivesUrl;
+    firstUrl = firstUrl ? firstUrl.replace(/\/\//g, `/`) : firstUrl;
+    lastUrl = lastUrl ? lastUrl.replace(/\/\//g, `/`) : lastUrl;
+    prevUrl = prevUrl ? prevUrl.replace(/\/\//g, `/`) : prevUrl;
+    nextUrl = nextUrl ? nextUrl.replace(/\/\//g, `/`) : nextUrl;
+
+    let linkHtml = '';
+    linkHtml += `<link rel="canonical" href="${url}">`;
+    linkHtml += indexUrl ? `<link rel="index" href="${indexUrl}">` : '';
+    linkHtml += archivesUrl ? `<link rel="archives" href="${archivesUrl}">` : '';
+    linkHtml += firstUrl ? `<link rel="first" href="${firstUrl}">` : '';
+    linkHtml += lastUrl ? `<link rel="last" href="${lastUrl}">` : '';
+    linkHtml += prevUrl && page.current > 2 ? `<link rel="prev" href="${prevUrl}">` : '';
+    linkHtml += nextUrl ? `<link rel="next" href="${nextUrl}">` : '';
+
+    return linkHtml;
+  })(url, path, config, page);
+
+| !{metaLinks}

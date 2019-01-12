@@ -1,1 +1,37 @@
-header.header
+-
+  const pageSubject = (()=>{
+    let subject = ``;
+
+    if(is_home()) subject = config.title;
+    if(is_post()) subject = page.title;
+    if(is_archive()) {
+      if(is_year()) {
+        subject = `<time datetime="${page.year}">${page.year}년</time>`;
+        if(is_month())
+          subject = `<time datetime="${page.year}-${page.month}">${page.year}년 ${page.month}월</time>`;
+        subject += `에 작성된 글`;
+      } else {
+        subject = `Archives`;
+      }
+    }
+    if(is_category()) subject = `&lsquo;${page.category}&rsquo; 카테고리의 글`;
+    if(is_tag()) subject = `&lsquo;${page.tag}&rsquo;와(과) 관련된 글`;
+
+    return subject;
+  })();
+
+header(class=['header', 'hero', hero.hasHero ? 'hero--has-image' : ''])
+  .hero-wrapper
+      .gnb
+        unless is_home()
+          a(href="/" )= config.title
+        button.nav-toggle(type="button" aria-haspopup="true" aria-controls="navigation")
+          span
+          span
+          span
+          | menu
+      h1.header__title!= pageSubject
+      if page.subtitle
+        p.header__title-sub!= page.subtitle
+      if hero.style
+        .hero__image(style=hero.style)

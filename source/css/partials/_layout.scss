@@ -11,6 +11,93 @@ body {
   color: $black;
 }
 
+.gnb {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 .5em;
+  height: $gnb-height;
+
+  @include respond-to('medium') {
+    padding: 0 1em;
+  }
+}
+
+.hero {
+  overflow: hidden;
+  position: relative;
+  padding-top: 100%;
+  height: 0;
+
+  @include respond-to('small') {
+    padding-top: (9/16*100%);
+  }
+
+  @include respond-to('medium') {
+    padding-top: (9/21*1200px);
+  }
+}
+
+.nav {
+  display: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  transform: translate(106.25%, 0);
+  width: 100%;
+  height: 100%;
+  height: 100vh;
+  z-index: 5;
+  box-sizing: border-box;
+  transition: all .5s ease-in-out;
+
+  .sidebar-opened &{
+    display: block;
+  }
+
+  &--animate {
+    transform: translate(0, 0);
+  }
+
+  @include respond-to('x-small') {
+    &--animate {
+      width: 85%;
+      transform: translate(0, 0);
+    }
+  }
+
+  @include respond-to('small') {
+    &--animate {
+      width: 70%;
+      transform: translate(0, 0);
+    }
+  }
+
+  @include respond-to('medium') {
+    &--animate {
+      width: 60%;
+      transform: translate(0, 0);
+    }
+  }
+
+  @include respond-to('large') {
+    &--animate {
+      width: 700px;
+      transform: translate(0, 0);
+    }
+  }
+}
+
+.nav--container {
+  padding-bottom: 2rem;
+  min-height:100%;
+  box-sizing: border-box;
+}
+
 .footer {
   margin-top: auto;
   flex: 0 0 auto;

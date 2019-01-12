@@ -1,16 +1,30 @@
 html {
   font-size: $base-font-size;
+
+  @include respond-to('x-small') {
+    font-size: $base-font-size + 2px;
+  }
+  @include respond-to('small') {
+    font-size: $base-font-size + 4px;
+  }
+  @include respond-to('medium') {
+    font-size: $base-font-size + 6px;
+  }
+  @include respond-to('large') {
+    font-size: $base-font-size + 8px;
+  }
 }
 
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Iropke Batang', serif;
-  font-size: $base-font-size;
+  font-size: 100%;
   color: $black;
   line-height: 1.6;
   word-break: break-word;
   word-wrap: break-word;
+  text-size-adjust: none;
 }
 
 ::selection {
@@ -44,6 +58,122 @@ h6{
 
 .header {
   font-family: "Noto Sans KR";
+  color: $white;
+  text-shadow: 1px 2px 1px rgba($black, 0.5), -1px -1px 0 rgba($black, 0.5);
+}
+
+.gnb {
+  font-size: $larger-font-size;
+  font-weight: 400;
+
+  > a {
+    color: darken($white, 20%);
+  }
+
+  .nav-toggle {
+    font-size: $small-font-size;
+    text-shadow: 1px 2px 1px rgba($black, 0.5), -1px -1px 0 rgba($black, 0.5);
+  }
+}
+
+.header__title {
+  font-size: $largest-font-size + 0.25;
+  font-size: 8.75vw;
+  text-align: left;
+
+  @include respond-to('x-small') {
+    font-size: convertRem(30px);
+    font-size: 7.08vw;
+  }
+  @include respond-to('small') {
+    font-size: convertRem(34px);
+    font-size: 5.77vw;
+  }
+  @include respond-to('medium') {
+    font-size: convertRem(38px);
+    font-size: 5.33vw;
+  }
+  @include respond-to('large') {
+    font-size: convertRem(50px);
+    font-size: 4.25vw;
+  }
+  @include respond-to('x-large') {
+    font-size: $heading-font-size-level-1;
+  }
+
+
+  .home & {
+    text-align: center;
+    font-size: $heading-font-size-level-2;
+    font-size: 11.25vw;
+
+    @include respond-to('x-small') {
+      font-size: convertRem(48px);
+      font-size: 10vw;
+    }
+
+    @include respond-to('small') {
+      font-size: convertRem(54px);
+    }
+  }
+}
+
+.header__title-sub {
+  font-size: convertRem(18px);
+  font-size: 5.625vw;
+
+  @include respond-to('x-small') {
+    font-size: convertRem(30px * 0.65);
+    font-size: 7.08vw * 0.65;
+  }
+
+  @include respond-to('small') {
+    font-size: convertRem(34px * 0.65);
+    font-size: 5.77vw * 0.65;
+  }
+  @include respond-to('medium') {
+    font-size: convertRem(38px * 0.65);
+    font-size: 5.33vw * 0.65;
+  }
+  @include respond-to('large') {
+    font-size: convertRem(36px * 0.65);
+    font-size: 3.87vw * 0.65;
+  }
+  @include respond-to('x-large') {
+    font-size: $heading-font-size-level-1 * 0.65;
+  }
+
+  &::before {
+    margin-right: 0.5em;
+    content: '\2014';
+  }
+}
+
+.nav {
+  color: $white;
+  text-shadow: 1px 2px 1px rgba($black, 0.5), -1px -1px 0 rgba($black, 0.5);
+}
+
+.nav__heading {
+  font-family: "Spoqa Han Sans";
+  text-transform: capitalize;
+  font-size: $largest-font-size;
+
+  &::first-letter {
+    font-size: $jumbo-font-size;
+  }
+}
+
+.nav__heading--sub {
+  font-size: $larger-font-size;
+
+  &::first-letter {
+    font-size: $largest-font-size;
+  }
+}
+
+.nav__sns__icon {
+  text-align: center;
 }
 
 .footer {

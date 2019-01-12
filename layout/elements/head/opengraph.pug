@@ -1,0 +1,32 @@
+- let excerpt = post && (post.excerpt.replace(/\>\</g, '>\n<') || post.content.substr(0, 500).replace(/\>\</g, '>\n<')) || ``;
+-
+  let meta_description = ``;
+  if(is_home())
+    meta_description = config.description;
+  else if(is_category())
+    meta_description = `'${page.category}'에 해당하는 글 목록`;
+  else if(is_tag())
+    meta_description = `'${page.tag}'와(과) 관련 된 글 목록`;
+  else if(is_archive())
+    if(is_month())
+      meta_description = date(`${page.year}-${page.month}`, 'YYYY-MM') + `에 작성된 글 목록`;
+    else if(is_year())
+      meta_description = `${page.year}년에 작성된 글 목록`;
+    else
+      meta_description = `글 목록`;
+  else
+    meta_description = page.seo && page.seo.description || excerpt || config.description;
+-
+  const openGraph = open_graph({
+    description: meta_description,
+    author: page.seo && page.seo.author || config.author,
+    image: page.seo && page.seo.images || image || theme.profile.gravatar,
+    fb_app_id: theme.facebook,
+    fb_admins: theme.fb_admin,
+    twitter_id: theme.twitter,
+    google_plus: theme.google_plus,
+    url: page.permalink,
+    title: page.title || title
+  });
+
+| !{ openGraph }

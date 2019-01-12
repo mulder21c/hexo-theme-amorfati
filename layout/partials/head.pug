@@ -2,21 +2,28 @@ meta(charset="UTF-8")
 meta(http-equiv="X-UA-Compatible" content="IE=edge")
 meta(name="viewport" content="width=device-width, initial-scale=1")
 
-include ../elements/title.pug
+include ../elements/head/title.pug
 
 // open graph
-include ../elements/opengraph.pug
+include ../elements/head/opengraph.pug
+
+// verify website ownership
+include ../elements/head/verify-website.pug
 
 // Links
-include ../elements/links.pug
+include ../elements/head/links.pug
 
 // Icons
-include ../elements/icons.pug
+include ../elements/head/icons.pug
+
+// preload
+include ../elements/head/preload.pug
 
 // styles
-include ../elements/style.pug
+include ../elements/head/style.pug
 
 // JSON LD for SEO
-include ../elements/jsonld.pug
+include ../elements/head/jsonld.pug
 
-// scripts
+//scripts
+include ../elements/head/analytics.pug

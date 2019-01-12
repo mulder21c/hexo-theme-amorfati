@@ -6,6 +6,26 @@ menu:
 # Images
 favicon: /images/favicon.png
 
+# Profile
+profile:
+  gravatar:
+  social:
+    github:
+    facebook:
+    linkedin:
+    instagram:
+    twitter:
+    flickr:
+
+
+# Site Verification
+google_site_verification:
+naver-site-verification:
+
+# Analytics
+analytics:
+  google:
+  naver:
 
 # web fonts
 webfonts:
@@ -13,3 +33,9 @@ webfonts:
   extraFonts:
   #  - family:
   #    url:
+
+# Extenreal Links
+
+links:
+#  - name:
+#    url:

@@ -1,0 +1,97 @@
+-
+  const postList = page.posts && page.posts.reduce(function(result, post){
+    let excerpt = post.excerpt.replace(/\>\</g, '>\n<') || post.content.substr(0, 1000).replace(/\>\</g, '>\n<');
+    result.push({
+      "@type": "BlogPosting",
+      "headline": post.title || "",
+      "alternativeHeadline": post.subtitle || "",
+      "editor": {
+        "@type": "Person",
+        "name": config.author
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": config.author
+      },
+      "author": {
+        "@type": "Person",
+        "name": config.author
+      },
+      "url": post.permalink,
+      "dateCreated":  date(post.date, null),
+      "datePublished": date(post.date, null)
+    });
+    return result;
+  }, []);
+
+if(is_home())
+  script(type="application/ld+json").
+    {
+      "@context": "http://schema.org",
+      "@type": "Blog",
+      "name": "#{config.title}",
+      "url": "#{config.url}",
+      "description": "#{config.description || ""}",
+      "editor": {
+        "@type": "Person",
+        "name": "#{config.author}"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "#{config.author}"
+      },
+      "copyrightHolder": {
+        "@type": "Person",
+        "name": "#{config.author}"
+      },
+      "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ko"
+    }
+if(is_post())
+  -
+    let keyword = page.tags && page.tags.reduce((str, entry) => {
+      return str += entry.name + ',';
+    }, ``).replace(/,+\s*$/, '');
+  script(type="application/ld+json").
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "headline": "#{page.title || ""}",
+      "alternativeHeadline": "#{page.subtitle || ""}",
+      "image": {
+        "@type": "imageObject",
+        "url": "#{theme.hero ? theme.hero.url : ""}",
+        "height": "#{theme.hero ? theme.hero.height : ""}",
+        "width": "#{theme.hero ? theme.hero.width : ""}"
+      },
+      "genre": "#{page.seo && page.seo.genre || ""}",
+      "keywords": "#{keyword}"
+      "editor": {
+        "@type": "Person",
+        "name": "#{config.author}"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "#{config.author}"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "#{config.author}"
+      },
+      "url": "#{page.permalink}",
+      "dateCreated": "#{date(page.date, null)}",
+      "datePublished": "#{date(page.date, null)}",
+      "articleBody": "#{meta_description.replace(/\n/, ' ')}",
+      "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ko"
+    }
+if(is_archive() || is_category() || is_tag())
+  script(type="application/ld+json").
+    {
+      "@context": "http://schema.org",
+      "@type": "CollectionPage",
+      "name": "#{title}"
+      "headline": "#{title}",
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": !{JSON.stringify(postList)}
+      }
+    }
