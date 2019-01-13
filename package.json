@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "preinstall": "cd ../../ && npm install --save-dev hexo-renderer-jade",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copyresource": "copy-resource.sh",
+    "postinstall": "npm run copyresource"
   },
   "keywords": [],
   "author": {
@@ -14,7 +16,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.6.3"
+    "@fortawesome/fontawesome-free": "^5.6.3",
+    "spoqa-han-sans": "^2.1.2",
+    "typeface-noto-sans-kr": "0.0.63",
+    "webfontloader": "^1.6.28"
   },
   "devDependencies": {
     "autoprefixer": "^9.4.4",

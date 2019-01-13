@@ -29,7 +29,7 @@ analytics:
 
 # web fonts
 webfonts:
-  uses: ['Iropke Batang', 'Noto Sans KR', 'Font Awesome']
+  uses: ['Noto Sans KR', 'Font Awesome']
   extraFonts:
   #  - family:
   #    url:

@@ -18,7 +18,7 @@ html {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Iropke Batang', serif;
+  font-family: 'Noto Sans KR', serif;
   font-size: 100%;
   color: $black;
   line-height: 1.6;
@@ -57,7 +57,6 @@ h6{
 }
 
 .header {
-  font-family: "Noto Sans KR";
   color: $white;
   text-shadow: 1px 2px 1px rgba($black, 0.5), -1px -1px 0 rgba($black, 0.5);
 }
@@ -155,7 +154,6 @@ h6{
 }
 
 .nav__heading {
-  font-family: "Spoqa Han Sans";
   text-transform: capitalize;
   font-size: $largest-font-size;
 
