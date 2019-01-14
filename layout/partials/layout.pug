@@ -1,3 +1,49 @@
+//- Do not delete the following code.
+    The following code is used to preprocess the post list for generating JSONLD, post-list.pug
+-
+  const postList = page.posts && page.posts.reduce(function(result, post){
+    let excerpt = post.excerpt.replace(/\>\</g, '>\n<') || post.content.substr(0, 1000).replace(/\>\</g, '>\n<');
+    result.jsonld.push({
+      "@type": "BlogPosting",
+      "headline": post.title || "",
+      "alternativeHeadline": post.subtitle || "",
+      "editor": {
+        "@type": "Person",
+        "name": config.author
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": config.author
+      },
+      "author": {
+        "@type": "Person",
+        "name": config.author
+      },
+      "url": post.permalink,
+      "dateCreated":  date(post.date, null),
+      "datePublished": date(post.date, null)
+    });
+    result.list.push({
+      title: post.title,
+      subtitle: post.subtitle,
+      tags: post.tags,
+      categories: post.categories,
+      hero: post.hero,
+      thumbnail: post.thumbnail,
+      date: post.date,
+      link: `/` + (post.link || post.path),
+      content: truncate(strip_html(excerpt), {length: 160, omission: '...' }),
+      id: post._id
+    });
+    return {
+      jsonld: result.jsonld,
+      list: result.list,
+    };
+  }, {
+    jsonld: [],
+    list: []
+  });
+
 doctype html
 html(lang=config.language)
   head

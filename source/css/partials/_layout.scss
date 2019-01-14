@@ -8,7 +8,6 @@ body {
   box-orient: vertical;
   flex-direction: column;
   background-color: $primary-backgroundcolor;
-  color: $black;
 }
 
 .gnb {
@@ -96,6 +95,36 @@ body {
   padding-bottom: 2rem;
   min-height:100%;
   box-sizing: border-box;
+}
+
+.post-lists__container {
+  box-sizing: border-box;
+  flex: 0 1 100%;
+  margin: 0;
+  padding: 1rem;
+}
+
+
+.pagination {
+  flex: 0 0 auto;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+  margin: 1rem auto 3rem;
+  width: 80%;
+
+  @include respond-to('x-small') {
+    width: 70%;
+  }
+
+  @include respond-to('small') {
+    width: 60%;
+  }
+
+  @include respond-to('medium') {
+    width: 50%;
+  }
 }
 
 .footer {

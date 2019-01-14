@@ -19,6 +19,10 @@ $theme-color: #3F60A7;
 $muddy-color: #647983;
 $accent-color: #592248;
 
+$tag-category-color: lighten($accent-color, 10%);
+$tag-date-color: lighten($theme-color, 8%);
+$tag-tag-color: lighten($muddy-color, 5%);
+
 /*
   variables for fontsize
 */

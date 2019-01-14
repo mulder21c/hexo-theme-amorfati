@@ -72,6 +72,7 @@ h6{
   .nav-toggle {
     font-size: $small-font-size;
     text-shadow: 1px 2px 1px rgba($black, 0.5), -1px -1px 0 rgba($black, 0.5);
+    text-align: center;
   }
 }
 
@@ -172,14 +173,103 @@ h6{
 
 .nav__sns__icon {
   text-align: center;
+  font-size: 1.75rem;
+}
+
+.post-list__title {
+  @include ellipse(100%);
+  font-size: $largest-font-size;
+  font-weight: 700;
+  color: $theme-color;
+}
+
+.post-list__sub-title {
+  @include ellipse(100%);
+  font-size: $large-font-size;
+  color: $theme-color;
+
+  &::before {
+    margin-right: .25em;
+    content: "\2014";
+  }
+}
+
+.post-list__tag {
+  font-size: $small-font-size;
+  line-height: 1.2;
+  color: $white;
+  text-shadow: 1px 1px 1px rgba($black, 0.5), -1px -1px 1px rgba($black, 0.5);
+
+  @include respond-to('large') {
+    font-size: $small-font-size * 0.9;
+  }
+}
+
+.post-list__tag-category {
+  word-break: keep-all;
+  white-space: nowrap;
+}
+
+.post-list__category {
+  @include ellipse(49%);
+
+  .post-list__tag-category-only-one & {
+    @include ellipse(100%);
+  }
+}
+
+.post-list__tag-tag {
+  @include ellipse(6rem);
+
+  @include respond-to('small') {
+    @include ellipse(60%);
+  }
+
+  @include respond-to('medium') {
+    @include ellipse(70%);
+  }
+}
+
+.post-list__thumbs--container {
+  .post-list__thumbs--wrapper-no-image & {
+    > span {
+      font-size: $jumbo-font-size * 1.5;
+      text-shadow: 1px 2px 1px rgba($black, 0.5), -1px -1px 0 rgba($black, 0.5);
+      text-transform: uppercase;
+      color: $white;
+    }
+  }
+}
+
+.pagination {
+  color: darken($muddy-color, 20%);
+  text-align: center;
+
+  .extend,
+  .space,
+  .page-number {
+    text-align: center;
+  }
+
+  .current {
+    color: $theme-color;
+    font-weight: 700;
+    transform: scale(1.8);
+  }
+
+  .pagination__button-prev,
+  .pagination__button-next {
+    display: inline-block;
+    @extend %sr-only;
+  }
 }
 
 .footer {
   font-size: $small-font-size;
   text-align: center;
 
-  a[rel="external"],
-  a[rel="license"] {
+  a[rel^="external"],
+  a[rel^="license"] {
     color: $theme-color;
   }
 }

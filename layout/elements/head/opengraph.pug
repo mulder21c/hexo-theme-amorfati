@@ -2,7 +2,7 @@
 -
   let meta_description = ``;
   if(is_home())
-    meta_description = config.description;
+    meta_description = config.description || ``;
   else if(is_category())
     meta_description = `'${page.category}'에 해당하는 글 목록`;
   else if(is_tag())
@@ -15,7 +15,7 @@
     else
       meta_description = `글 목록`;
   else
-    meta_description = page.seo && page.seo.description || excerpt || config.description;
+    meta_description = page.seo && page.seo.description || excerpt || config.description || ``;
 -
   const openGraph = open_graph({
     description: meta_description,

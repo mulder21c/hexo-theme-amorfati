@@ -1,0 +1,37 @@
+- const maxtagCnt = 3;  // Number of tags to expose to the list item
+
+.post-lists__container
+  ul.post-list__wrapper
+    each post in postList.list
+      li.post-list__item
+        a(href=post.link aria-labelledby=`title-${post.id}` aria-describedby=`desc-${post.id}`)
+          span(id=`title-${post.id}`).post-list__title= post.title
+          if post.subtitle
+            span.post-list__sub-title= post.subtitle
+          div.post-list__info-box
+            span(class=["post-list__thumbs--wrapper", post.thumbnail || post.hero ? '' : 'post-list__thumbs--wrapper-no-image'] aria-hidden="true")
+              span.post-list__thumbs--container
+                if post.thumbnail || post.hero
+                  img.post-list__thumbs(src=post.thumbnail || post.hero alt="")
+                else
+                  span= post.title.substr(0, 1)
+            span.post-list__tag.post-list__tag-date
+              span.fas.fa-calendar-day(aria-hidden="true")
+              span.post-list__date= date(post.date, 'YYYY.MM.DD')
+            if post.categories.length
+              span(class= [
+                  `post-list__tag`,
+                  `post-list__tag-category`,
+                  post.categories.length === 1 ? `post-list__tag-category-only-one` : ``
+                ])
+                span.fas.fa-archive(aria-hidden="true")
+                each category in post.categories.data
+                  span.post-list__category= category.name
+            if post.tags.length
+              div.post-list__tag__wrapper
+                each tag in post.tags.length ? post.tags.data.slice(0, maxtagCnt) : []
+                  span.post-list__tag.post-list__tag-tag
+                    span.fas.fa-tag
+                    = tag.name
+            p(id=`desc-${post.id}`).post-list__desc
+              | !{render(post.content.replace(/\\n/g, ' '), 'html')}
