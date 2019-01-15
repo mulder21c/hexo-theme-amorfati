@@ -31,7 +31,7 @@
       hero: post.hero,
       thumbnail: post.thumbnail,
       date: post.date,
-      link: `/` + (post.link || post.path),
+      link: url_for(post.link || post.path),
       content: truncate(strip_html(excerpt), {length: 160, omission: '...' }),
       id: post._id
     });

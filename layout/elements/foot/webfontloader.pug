@@ -1,9 +1,9 @@
 -
   const definedFonts = ((extra) => {
     let defaults = {
-      "Noto Sans KR": "/fonts/notosanskr/NotoSansKR.css",
-      "Spoqa Han Sans": "/fonts/spoqahansans/SpoqaHanSans-kr.css",
-      "Font Awesome": "/fonts/fontawesome/fontawesome.css",
+      "Noto Sans KR": url_for("/fonts/notosanskr/NotoSansKR.css"),
+      "Spoqa Han Sans": url_for("/fonts/spoqahansans/SpoqaHanSans-kr.css"),
+      "Font Awesome": url_for("/fonts/fontawesome/fontawesome.css"),
     };
     extra && extra.forEach((font) => {
       defaults[font.family] = font.url
@@ -21,7 +21,7 @@
     return urls;
   }, ``);
 
-script(src="/js/webfontloader.js")
+script(src= url_for("/js/webfontloader.js"))
 script.
   WebFont.load({
     custom: {
