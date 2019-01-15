@@ -8,6 +8,13 @@ body {
   box-orient: vertical;
   flex-direction: column;
   background-color: $primary-backgroundcolor;
+
+  .sidebar-opened &{
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
 }
 
 .gnb {
