@@ -1,0 +1,14 @@
+.article__meta
+  if theme.profile && theme.profile.gravatar
+    .gravatar
+      img(src= theme.profile.gravatar alt= `authored by ${config.author}` )
+  time.article__meta__time(datatime= date_xml(page.date))
+    span(aria-label="posted")
+      span.fas.fa-calendar-day(aria-hidden="true")
+    = full_date(page.date)
+  if page.categories && page.categories.length
+    .article__meta__category
+      span(aria-label="category")
+        span.fas.fa-archive(aria-hidden="true")
+      each category in page.categories.data
+        a.article__meta__category__item(href= url_for(category.path))= category.name

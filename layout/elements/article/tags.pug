@@ -1,0 +1,8 @@
+if page.tags && page.tags.length
+  .article__tags
+    .article__tags__title
+      | tags:
+    each tag in page.tags.data
+      a.article__tag__item(href= url_for(tag.path) )
+        span(aria-hidden="true").fas.fa-tag
+        = tag.name

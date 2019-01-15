@@ -1,0 +1,43 @@
+if page.viewer360 && page.viewer360.use
+  script(src="//storage.googleapis.com/vrview/2.0/build/vrview.min.js")
+  script.
+    function onVrViewLoad() {
+      var j = document.getElementsByClassName("#{page.viewer360.className}");
+      for(var i = -1, item = null; item = j[++i];){
+        item.setAttribute("id", "vrview" + i);
+
+        new VRView.Player("#vrview" + i, {
+          image: item.getAttribute("data-src"),
+          width: item.getAttribute("data-width") || 800,
+          height: item.getAttribute("data-height") || 400,
+          is_stereo: !!(item.getAttribute("data-stereo") === "true"),
+          default_yaw: item.getAttribute("data-yaw") || 0
+        });
+      }
+    }
+    window.addEventListener("load", onVrViewLoad);
+
+if page.__post && page.comment !== false
+  if theme.liveRe && theme.liveRe.uid
+    script.
+      (function(d, s) {
+        if(!document.getElementById("lv-container")) return;
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === "function") { return; }
+        j = d.createElement(s);
+        j.src = "https://cdn-city.livere.com/js/embed.dist.js";
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, "script");
+
+  if theme.disqus && theme.disqus.shortname
+    script.
+      var disqus_config = function () {
+        this.page.url = '#{page.permalink}';
+        this.page.identifier = '#{page._id}';
+      };
+      (function(d, s){
+        s.src = 'https://#{theme.disqus.shortname}.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        d.body.appendChild(s);
+      })(document, document.createElement('script'));

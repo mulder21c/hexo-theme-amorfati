@@ -1,0 +1,7 @@
+if page.comment !== false && is_post() || is_page()
+  section.comment
+    if theme.liveRe && theme.liveRe.uid
+      #lv-container(data-id="city", data-uid=theme.liveRe.uid)
+
+    if theme.disqus && theme.disqus.shortname
+      #disqus_thread

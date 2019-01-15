@@ -1,4 +1,7 @@
-if theme.google_site_verification
-  meta(name="google-site-verification" content=theme.google_site_verification)
-if theme.naver_site_verification
-  meta(name="naver-site-verification" content=theme.naver_site_verification)
+if theme.site_verification.enable
+  if theme.site_verification.google
+  meta(name="google-site-verification" content=theme.site_verification.google)
+  if theme.site_verification.naver
+    meta(name="naver-site-verification" content=theme.site_verification.naver)
+  if theme.site_verification.bing
+    meta(name="msvalidate.01" content=theme.site_verification.bing)

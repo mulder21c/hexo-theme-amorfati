@@ -264,6 +264,64 @@ h6{
   }
 }
 
+.article__meta {
+  color: darken($muddy-color, 10%);
+  font-size: $small-font-size;
+}
+
+.article__content {
+  @include respond-to('medium') {
+    line-height: 1.8;
+  }
+
+  a {
+    color: $theme-color;
+    transition: color .3s ease;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+
+  blockquote {
+    cite::before {
+      content: '\2014';
+      margin: 0 0.5rem;
+    }
+  }
+
+  .headerlink{
+    &::before {
+      content: "§";
+      margin-right: .25em;
+      text-align: center;
+      color: lighten($theme-color, 10%);
+    }
+  }
+
+  pre[class*="language-"],
+  code[class*="language-"]{
+    font-size: inherit;
+    white-space: pre;
+  }
+
+  :not(pre) > code[class*="language-"]{
+    font-size: inherit;
+    vertical-align: baseline;
+  }
+}
+
+.article__tags {
+  font-size: $small-font-size;
+  line-height: 1.2;
+  color: $white;
+  text-shadow: 1px 1px 1px rgba($black, 0.5), -1px -1px 1px rgba($black, 0.5);
+
+  @include respond-to('small') {
+    font-size: $smaller-font-size;;
+  }
+}
+
 .footer {
   font-size: $small-font-size;
   text-align: center;

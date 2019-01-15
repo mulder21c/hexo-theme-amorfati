@@ -3,8 +3,16 @@ menu:
   Home: /
   Archives: /archives
 
-# Images
-favicon: /images/favicon.png
+
+# Favicon
+favicon:
+
+# Hero - Please specify width and height for structured data
+hero:
+  url:
+  width:
+  height:
+
 
 # Profile
 profile:
@@ -16,16 +24,22 @@ profile:
     instagram:
     twitter:
     flickr:
+    rss:
 
 
 # Site Verification
-google_site_verification:
-naver-site-verification:
+site_verification:
+  enable: true
+  google:
+  naver:
+  bing:
+
 
 # Analytics
 analytics:
   google:
   naver:
+
 
 # web fonts
 webfonts:
@@ -34,8 +48,16 @@ webfonts:
   #  - family:
   #    url:
 
-# Extenreal Links
 
+# Extenreal Links
 links:
-#  - name:
-#    url:
+  #  - name:
+  #    url:
+
+
+# Comments
+liveRe:
+  uid:
+
+disqus:
+  shrtname:

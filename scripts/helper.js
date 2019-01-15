@@ -71,9 +71,22 @@ hexo.extend.helper.register('list_external_links', (links, options) => {
  * @return {{hasHero: Boolean, imageUrl: String, style: String}}
  */
 hexo.extend.helper.register('get_hero', (page, theme) => {
-  let res = {};
-  let context = page && page.hero || theme.hero;
+  const defaults = {
+    url: null,
+    width: null,
+    height: null,
+    position: null,
+    size: null,
+  };
+  const data = page && page.hero || theme.hero;
   let style = null;
+  let context = null;
+
+  if(data && typeof data === 'object') {
+    context = Object.assign({}, defaults, data);
+  }else if(data && typeof data === 'string') {
+    context = Object.assign({}, defaults, {url: data});
+  }
 
   if(!!context) {
     style = `background-image: url(${context.url || context});`;
@@ -82,8 +95,10 @@ hexo.extend.helper.register('get_hero', (page, theme) => {
   }
 
   return {
-    hasHero: !!context,
+    hasHero: !!context && !!context.url,
     imageUrl: context && context.url,
+    imageWidth: context && context.width,
+    imageHeight: context && context.height,
     style,
   }
 });

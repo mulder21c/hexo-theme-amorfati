@@ -7,3 +7,7 @@ link(rel="stylesheet" href= url_for("/css/style.css"))
 if is_post() && page.style
   style.
     !{page.style}
+//-
+  highlight theme
+if config.highlight && config.highlight.enable
+  link(rel="stylesheet" href= url_for("/css/dracula.css"))

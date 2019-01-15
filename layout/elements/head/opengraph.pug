@@ -1,4 +1,6 @@
-- let excerpt = post && (post.excerpt.replace(/\>\</g, '>\n<') || post.content.substr(0, 500).replace(/\>\</g, '>\n<')) || ``;
+-
+  let excerpt = page._post ? page.excerpt && page.excerpt.replace(/\>\</g, '>\n<') || page.content.substr(0, 500).replace(/\>\</g, '>\n<') || `` : ``;
+  excerpt = strip_html(excerpt);
 -
   let meta_description = ``;
   if(is_home())
@@ -20,7 +22,12 @@
   const openGraph = open_graph({
     description: meta_description,
     author: page.seo && page.seo.author || config.author,
-    image: page.seo && page.seo.images || image || theme.profile.gravatar,
+    image: _.compact([
+      page.seo && page.seo.images,
+      page.hero && typeof page.hero === 'object' && page.hero.url,
+      page.hero && typeof page.hero === 'string' && page.hero,
+      theme.hero && theme.hero.url,
+    ]),
     fb_app_id: theme.facebook,
     fb_admins: theme.fb_admin,
     twitter_id: theme.twitter,

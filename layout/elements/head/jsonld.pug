@@ -3,67 +3,66 @@ if(is_home())
     {
       "@context": "http://schema.org",
       "@type": "Blog",
-      "name": "#{config.title}",
-      "url": "#{config.url}",
-      "description": "#{config.description || ""}",
+      "name": !{config.title ? `"${config.title}"` : 'null'},
+      "url": !{config.url ? `"${config.url}"` : 'null'},
+      "description": null,
       "editor": {
         "@type": "Person",
-        "name": "#{config.author}"
+        "name": !{config.author ? `"${config.author}"` : 'null'}
       },
       "publisher": {
         "@type": "Person",
-        "name": "#{config.author}"
+        "name": !{config.author ? `"${config.author}"` : 'null'}
       },
       "copyrightHolder": {
         "@type": "Person",
-        "name": "#{config.author}"
-      },
-      "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ko"
+        "name": !{config.author ? `"${config.author}"` : 'null'}
+      }
     }
 if(is_post())
   -
     let keyword = page.tags && page.tags.reduce((str, entry) => {
       return str += entry.name + ',';
     }, ``).replace(/,+\s*$/, '');
+  - let hero = get_hero(page, theme);
   script(type="application/ld+json").
     {
       "@context": "http://schema.org",
       "@type": "BlogPosting",
-      "headline": "#{page.title || ""}",
-      "alternativeHeadline": "#{page.subtitle || ""}",
+      "headline": !{page.title ? `"${page.title}"` : 'null'},
+      "alternativeHeadline": !{page.subtitle ? `"${page.subtitle}"` : 'null'},
       "image": {
         "@type": "imageObject",
-        "url": "#{theme.hero ? theme.hero.url : ""}",
-        "height": "#{theme.hero ? theme.hero.height : ""}",
-        "width": "#{theme.hero ? theme.hero.width : ""}"
+        "url": !{hero.hasHero && hero.imageUrl ? `"${hero.imageUrl}"` : 'null'},
+        "width": !{hero.hasHero && hero.imageWidth ? `"${hero.imageWidth}"` : 'null'},
+        "height": !{hero.hasHero && hero.imageHeight ? `"${hero.imageHeight}"` : 'null'}
       },
-      "genre": "#{page.seo && page.seo.genre || ""}",
-      "keywords": "#{keyword}"
+      "genre": !{page.seo && page.seo.genre ? `"${page.seo.genre}"` : 'null'},
+      "keywords": !{keyword || 'null'},
       "editor": {
         "@type": "Person",
-        "name": "#{config.author}"
+        "name": !{config.author ? `"${config.author}"` : 'null'}
       },
       "publisher": {
         "@type": "Person",
-        "name": "#{config.author}"
+        "name": !{config.author ? `"${config.author}"` : 'null'}
       },
       "author": {
         "@type": "Person",
-        "name": "#{config.author}"
+        "name": !{config.author ? `"${config.author}"` : 'null'}
       },
-      "url": "#{page.permalink}",
-      "dateCreated": "#{date(page.date, null)}",
-      "datePublished": "#{date(page.date, null)}",
-      "articleBody": "#{meta_description.replace(/\n/, ' ')}",
-      "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ko"
+      "url": !{page.permalink ? `"${page.permalink}"` : 'null'},
+      "dateCreated": !{page.date ? `"${date(page.date, null)}"` : 'null'},
+      "datePublished": !{page.date ? `"${date(page.date, null)}"` : 'null'},
+      "articleBody": !{meta_description ? `"${meta_description.replace(/\n/, ' ')}"` : 'null'}
     }
 if(is_archive() || is_category() || is_tag())
   script(type="application/ld+json").
     {
       "@context": "http://schema.org",
       "@type": "CollectionPage",
-      "name": "#{title}"
-      "headline": "#{title}",
+      "name": !{title ? `"${title}"` : 'null'}
+      "headline": !{title ? `"${title}"` : 'null'},
       "mainEntity": {
         "@type": "ItemList",
         "itemListElement": !{JSON.stringify(postList.jsonld)}

@@ -111,7 +111,6 @@ body {
   padding: 1rem;
 }
 
-
 .pagination {
   flex: 0 0 auto;
   flex-flow: row wrap;
@@ -132,6 +131,32 @@ body {
   @include respond-to('medium') {
     width: 50%;
   }
+}
+
+.contents--container {
+  margin: 0 auto;
+  width: 100%;
+  @include respond-to('medium') {
+    max-width: 1100px;
+  }
+  @include respond-to('large') {
+    max-width: 1300px;
+  }
+}
+
+.article {
+  position: relative;
+  box-sizing: border-box;
+  flex: 0 1 100%;
+  margin: 3rem 1rem;
+
+  @include respond-to('large') {
+    margin: 4rem 1rem;
+  }
+}
+
+.comment {
+  margin: 0 1rem 2rem;
 }
 
 .footer {
