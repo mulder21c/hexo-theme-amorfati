@@ -39,7 +39,7 @@ hexo.extend.helper.register('list_menu', (menus, currPath, options) => {
 /**
  * @decription create list of links to use for navigation from theme config(_config.yml)
  * @param {Array} links you should use `theme.links` as value of this parameter
- * @param {Obejct} [options]
+ * @param {Object} [options]
  * @param {String} [options.wrapperEl=ul] The tag name wrapping external link list
  * @param {String} [options.wrapperClass=link-list] The class name used for wrapper element
  * @param {String} [options.itemClass=link-item] The class name used for each menu
@@ -67,7 +67,7 @@ hexo.extend.helper.register('list_external_links', (links, options) => {
 /**
  * @decription give hero image's information. if there is oen for page then use that, otherwise use theme's one.
  * @param {Object} page you should use `page` as value of this parameter
- * @parem {Obejct} theme you should use `theme` as value of this parameter
+ * @param {Object} theme you should use `theme` as value of this parameter
  * @return {{hasHero: Boolean, imageUrl: String, style: String}}
  */
 hexo.extend.helper.register('get_hero', (page, theme) => {
