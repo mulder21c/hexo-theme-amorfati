@@ -24,7 +24,7 @@ header(class=['header', 'hero', hero.hasHero ? 'hero--has-image' : ''])
   .hero-wrapper
       .gnb
         unless is_home()
-          a(href="/" )= config.title
+          a(href= url_for("/") )= config.title
         button.nav-toggle(type="button" aria-haspopup="true" aria-controls="navigation")
           span
           span
