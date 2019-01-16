@@ -1,6 +1,5 @@
 -
-  let excerpt = page._post ? page.excerpt && page.excerpt.replace(/\>\</g, '>\n<') || page.content.substr(0, 500).replace(/\>\</g, '>\n<') || `` : ``;
-  excerpt = strip_html(excerpt);
+  let excerpt = page.__post ? (page.excerpt && page.excerpt.replace(/\>\</g, '> <')) || page.content.substr(0, 500).replace(/\>\</g, '> <') || `` : ``;
 -
   let meta_description = ``;
   if(is_home())
@@ -18,9 +17,10 @@
       meta_description = `글 목록`;
   else
     meta_description = page.seo && page.seo.description || excerpt || config.description || ``;
+  meta_description = strip_html(meta_description).replace(/^\s*\t*|\s*\t*$/g, '');
 -
   const openGraph = open_graph({
-    description: meta_description,
+    description: strip_html(meta_description).replace(/\n/g, ''),
     author: page.seo && page.seo.author || config.author,
     image: _.compact([
       page.seo && page.seo.images,
