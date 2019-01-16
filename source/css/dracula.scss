@@ -1,5 +1,9 @@
-pre,
+@import "helpers/mixin";
+@import "modules/functions";
+@import "modules/variables";
+
 .highlight {
+  box-sizing: border-box;
   background: #2d2d2d;
   margin: 1rem 0;
   padding: 1rem;
@@ -9,6 +13,12 @@ pre,
   overflow: auto;
   color: #ccc;
   line-height: 1.45rem;
+
+  @include article-content-full-width;
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(210, 210, 220, 0.85);
+  }
 }
 .highlight .gutter pre,
 .gist .gist-file .gist-data .line-numbers {
@@ -37,6 +47,7 @@ pre code {
 .highlight table {
   margin: 0;
   width: 100%;
+  table-layout: auto;
 }
 .highlight td {
   border: none;

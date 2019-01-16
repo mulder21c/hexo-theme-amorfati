@@ -371,11 +371,15 @@
   }
 
   blockquote {
+    overflow: auto;
+    box-sizing: border-box;
     position: relative;
-    margin: 1rem 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     padding: 2rem 1.5rem 1rem;
     border-radius: .5em;
     background-color: lighten($muddy-color, 50%);
+    @include article-content-full-width;
 
     &::before {
       position: absolute;
@@ -449,182 +453,10 @@
 
   img {
     display: block;
-    margin: 0 auto;
+    margin-top: 0;
+    margin-bottom: 0;
     box-shadow: 2px 2px 10px rgba($muddy-color, 0.85);
-  }
-
-  iframe {
-    display: block;
-    margin: 1rem 0;
-    width: 100%;
-  }
-
-  .horizon-overflow{
-    overflow-x: auto;
-
-    > table {
-      max-width: $container-large;
-      width: 250%;
-
-      caption {
-        padding: .5em;
-        text-align: left;
-      }
-
-      @include respond-to('x-small') {
-        width: 175%;
-      }
-
-      @include respond-to('small') {
-        width: 100%;
-
-        caption {
-          text-align: center;
-        }
-      }
-    }
-  }
-
-  :not(pre) > code[class*="language-"]{
-    display: inline-block;
-    margin: 0 .25em;
-    padding: 0 .5em;
-    border: 0;
-
-    &.transparent {
-      background-color: transparent;
-      margin: 0;
-      padding: 0 .25em;
-      box-shadow: none;
-    }
-  }
-
-  .video-container {
-    overflow: hidden;
-    position: relative;
-
-    & iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      margin: 0;
-    }
-
-    & video{
-      width: 100%;
-      height: auto;
-    }
-  }
-}
-
-
-.article__content {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 1rem 0;
-  }
-
-  hr {
-    position: relative;
-    border: 0;
-    margin: 0;
-    height: 4rem;
-    &:after {
-      content: '• • •';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-top: -0.75rem;
-      margin-left: -1.5rem;
-    }
-  }
-
-  blockquote {
-    position: relative;
-    margin: 1rem 0;
-    padding: 2rem 1.5rem 1rem;
-    border-radius: .5em;
-    background-color: lighten($muddy-color, 50%);
-
-    &::before {
-      position: absolute;
-      top: .5rem;
-      left: .5rem;
-      content: "\f10d";
-      font-family: 'Font Awesome 5 Free';
-      font-weight: 900;
-      font-size: $large-font-size;
-    }
-
-    &::after {
-      position: absolute;
-      bottom: .5rem;
-      right: .5rem;
-      content: "\f10e";
-      font-family: 'Font Awesome 5 Free';
-      font-weight: 900;
-      font-size: $large-font-size;
-    }
-
-    footer {
-      margin-top: 1rem;
-      font-size: $small-font-size;
-    }
-  }
-
-  code {
-    border-radius: .25em;
-    padding: 0.125em 0.25em;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  table {
-    table-layout: fixed;
-    border-top: 1px solid $muddy-color;
-    border-bottom: 1px solid $muddy-color;
-    width: 100%;
-    border-collapse: collapse;
-
-    tr,
-    td {
-      padding: 0.25em .5em;
-    }
-
-    thead > tr > th{
-      border-bottom: 2px solid lighten($muddy-color, 20%);
-    }
-
-    tbody > tr {
-      > th,
-      > td {
-        border-top: 1px solid lighten($muddy-color, 20%);
-      }
-
-      &:first-child > td,
-      &:first-child > th{
-        border-width: 0
-      }
-    }
-
-    tfoot >  tr {
-      > th,
-      > td{
-        border-top: 1px solid $muddy-color;
-      }
-    }
-  }
-
-  img {
-    display: block;
-    margin: 0 auto;
-    box-shadow: 2px 2px 10px rgba($muddy-color, 0.85);
+    @include article-content-full-width;
   }
 
   iframe {

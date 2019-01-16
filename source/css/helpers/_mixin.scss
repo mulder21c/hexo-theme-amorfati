@@ -25,3 +25,18 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+
+@mixin article-content-full-width {
+  max-width: calc(100% + 2rem);
+  margin-left: -1rem;
+  margin-right: -1rem;
+  width: calc(100% + 2rem);
+
+  @include respond-to('small') {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+}
