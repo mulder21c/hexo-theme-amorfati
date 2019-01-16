@@ -24,7 +24,13 @@ if(is_post())
     let keyword = page.tags && page.tags.reduce((str, entry) => {
       return str += entry.name + ',';
     }, ``).replace(/,+\s*$/, '');
-  - let hero = get_hero(page, theme);
+  -
+    let representImg = ((seoImage) => {
+      if(!seoImage) return !hero.hasHero ? null : hero;
+
+      return typeof seoImage === 'string' ? Object.assign({}, defaults, {url: seoImage}) : Object.assign({}, defaults, seoImage);
+    })(page.seo && page.seo.image);
+
   script(type="application/ld+json").
     {
       "@context": "http://schema.org",
@@ -33,23 +39,23 @@ if(is_post())
       "alternativeHeadline": !{page.subtitle ? `"${page.subtitle}"` : 'null'},
       "image": {
         "@type": "imageObject",
-        "url": !{hero.hasHero && hero.imageUrl ? `"${hero.imageUrl}"` : 'null'},
-        "width": !{hero.hasHero && hero.imageWidth ? `"${hero.imageWidth}"` : 'null'},
-        "height": !{hero.hasHero && hero.imageHeight ? `"${hero.imageHeight}"` : 'null'}
+        "url": !{representImg && representImg.url ? `"${representImg.url}"` : 'null'},
+        "width": !{representImg && representImg.width ? `"${representImg.width}"` : 'null'},
+        "height": !{representImg && representImg.height ? `"${representImg.height}"` : 'null'}
       },
       "genre": !{page.seo && page.seo.genre ? `"${page.seo.genre}"` : 'null'},
       "keywords": !{keyword || 'null'},
       "editor": {
         "@type": "Person",
-        "name": !{config.author ? `"${config.author}"` : 'null'}
+        "name": !{page.seo && page.seo.author ? `"${page.seo.author}"` : config.author ? `"${config.author}"` : 'null'}
       },
       "publisher": {
         "@type": "Person",
-        "name": !{config.author ? `"${config.author}"` : 'null'}
+        "name": !{page.seo && page.seo.author ? `"${page.seo.author}"` : config.author ? `"${config.author}"` : 'null'}
       },
       "author": {
         "@type": "Person",
-        "name": !{config.author ? `"${config.author}"` : 'null'}
+        "name": !{page.seo && page.seo.author ? `"${page.seo.author}"` : config.author ? `"${config.author}"` : 'null'}
       },
       "url": !{page.permalink ? `"${page.permalink}"` : 'null'},
       "dateCreated": !{page.date ? `"${date(page.date, null)}"` : 'null'},

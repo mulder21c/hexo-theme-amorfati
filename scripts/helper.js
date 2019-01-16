@@ -68,7 +68,7 @@ hexo.extend.helper.register('list_external_links', (links, options) => {
  * @decription give hero image's information. if there is oen for page then use that, otherwise use theme's one.
  * @param {Object} page you should use `page` as value of this parameter
  * @param {Object} theme you should use `theme` as value of this parameter
- * @return {{hasHero: Boolean, imageUrl: String, style: String}}
+ * @return {{hasHero: Boolean, url: String, width: Number, height: Number, style: String}}
  */
 hexo.extend.helper.register('get_hero', (page, theme) => {
   const defaults = {
@@ -96,9 +96,9 @@ hexo.extend.helper.register('get_hero', (page, theme) => {
 
   return {
     hasHero: !!context && !!context.url,
-    imageUrl: context && context.url,
-    imageWidth: context && context.width,
-    imageHeight: context && context.height,
+    url: context && context.url,
+    width: context && context.width,
+    height: context && context.height,
     style,
   }
 });

@@ -17,13 +17,14 @@
       meta_description = `글 목록`;
   else
     meta_description = page.seo && page.seo.description || excerpt || config.description || ``;
-  meta_description = strip_html(meta_description).replace(/^\s*\t*|\s*\t*$/g, '');
+  meta_description = strip_html(meta_description).replace(/\n/g, ' ').replace(/^\s*\t*|\s*\t*$/g, '');
 -
   const openGraph = open_graph({
     description: strip_html(meta_description).replace(/\n/g, ''),
     author: page.seo && page.seo.author || config.author,
     image: _.compact([
-      page.seo && page.seo.images,
+      page.seo && typeof page.seo.image === 'object' && page.seo.image.url,
+      page.seo && typeof page.seo.image === 'string' && page.seo.image,
       page.hero && typeof page.hero === 'object' && page.hero.url,
       page.hero && typeof page.hero === 'string' && page.hero,
       theme.hero && theme.hero.url,
