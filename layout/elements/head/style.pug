@@ -8,6 +8,11 @@ if is_post() && page.style
   style.
     !{page.style}
 //-
+  post-specific styles written in scss
+if is_post() && page.scss
+  style.
+    !{scss_post(page.scss)}
+//-
   highlight theme
 if config.highlight && config.highlight.enable
   link(rel="stylesheet" href= url_for("/css/dracula.css"))
