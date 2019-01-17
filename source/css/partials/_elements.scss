@@ -233,19 +233,20 @@
 .post-list__thumbs--wrapper {
   box-sizing: border-box;
   position: relative;
-  float: left;
   display: block;
-  padding: 0 1rem .5rem 0;
-  width: 40%;
+  padding: 0 0 .5rem 0;
+  width: 100%;
 
   @include respond-to('x-small') {
-    width: 35%;
+    float: left;
+    padding-right: 1rem;
+    width: 45%;
   }
 
   @include respond-to('small') {
     max-width: convertRem(172px);
     padding-right: 1rem;
-    width: 30%;
+    width: 40%;
   }
 }
 
@@ -298,7 +299,7 @@
 }
 
 .post-list__tag-category {
-  max-width: 48%;
+  max-width: 100%;
   width: auto;
   background-color: $tag-category-color;
 

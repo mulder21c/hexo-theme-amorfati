@@ -26,20 +26,20 @@ $tag-tag-color: lighten($muddy-color, 5%);
 /*
   variables for fontsize
 */
-$base-font-size: 16px;
+$base-font-size: 18px;
 $heading-font-size-level-1: convertRem(48px);
 $heading-font-size-level-2: convertRem(36px);
 $heading-font-size-level-3: convertRem(26px);
 $heading-font-size-level-4: convertRem(20px);
 $heading-font-size-level-5: convertRem(18px);
 $heading-font-size-level-6: convertRem(16px);
-$smallest-font-size: convertRem(10px);
-$smaller-font-size: convertRem(12px);
-$small-font-size: convertRem(14px);
-$large-font-size: convertRem(18px);
-$larger-font-size: convertRem(20px);
-$largest-font-size: convertRem(24px);
-$jumbo-font-size: convertRem(30px);
+$smallest-font-size: convertRem(12px);
+$smaller-font-size: convertRem(14px);
+$small-font-size: convertRem(16px);
+$large-font-size: convertRem(24px);
+$larger-font-size: convertRem(26px);
+$largest-font-size: convertRem(30px);
+$jumbo-font-size: convertRem(36px);
 
 /*
   variables for layout

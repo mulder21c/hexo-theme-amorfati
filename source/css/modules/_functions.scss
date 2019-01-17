@@ -40,7 +40,7 @@
   @return $value * map-get($units, $unit);
 }
 
-@function convertRem($size, $base: 16px) {
+@function convertRem($size, $base: $base-font-size) {
   $remSize: $size / $base;
   @return to-number(#{$remSize}rem);
 }
