@@ -16,17 +16,20 @@
                 else
                   span= post.title.substr(0, 1)
             span.post-list__tag.post-list__tag-date
-              span.fas.fa-calendar-day(aria-hidden="true")
-              span.post-list__date= date(post.date, 'YYYY.MM.DD')
+              span.post-list__date
+                span.fas.fa-calendar-day(aria-hidden="true")
+                = date(post.date, 'YYYY.MM.DD')
             if post.categories.length
               span(class= [
                   `post-list__tag`,
                   `post-list__tag-category`,
                   post.categories.length === 1 ? `post-list__tag-category-only-one` : ``
                 ])
-                span.fas.fa-archive(aria-hidden="true")
-                each category in post.categories.data
-                  span.post-list__category= category.name
+                each category, index in post.categories.data
+                  span.post-list__category
+                    if index == 0
+                      span.fas.fa-archive(aria-hidden="true")
+                    = category.name
             if post.tags.length
               div.post-list__tag__wrapper
                 each tag in post.tags.length ? post.tags.data.slice(0, maxtagCnt) : []

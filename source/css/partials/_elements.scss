@@ -263,6 +263,10 @@
   @include respond-to('x-small') {
     max-width: 50%;
   }
+
+  @include respond-to('small') {
+    max-width: 70%
+  }
 }
 
 .post-list__tag-tag {
@@ -277,10 +281,15 @@
 }
 
 .post-list__category {
+  width: auto;
+
   & ~ & {
+    margin-left: .25em;
+    padding-left: .5em;
     &::before {
       display: inline;
-      margin: 0 .25em;
+      margin-left: -.5em;
+      margin-right: .25em;
       content: "\027E9";
     }
   }

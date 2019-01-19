@@ -208,7 +208,19 @@ h6{
 }
 
 .post-list__category {
-  @include ellipse(49%);
+  @include ellipse(7rem);
+
+  @include respond-to ('x-small') {
+    @include ellipse(5.4rem)
+  }
+
+  @include respond-to ('small') {
+    @include ellipse(7rem)
+  }
+
+  @include respond-to ('medium') {
+    @include ellipse(13.5rem)
+  }
 
   .post-list__tag-category-only-one & {
     @include ellipse(100%);
