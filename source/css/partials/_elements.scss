@@ -1,26 +1,3 @@
-// placeholders
-%tag {
-  box-sizing: border-box;
-  border-radius: 2px;
-  display: inline-block;
-  margin-right: .25em;
-  margin-bottom: .25rem;
-  padding: .2em .5em .2em 1.5em;
-  vertical-align: middle;
-
-  :first-child[class^="fa"] {
-    margin-left: -1em;
-    margin-right: .25em;
-    vertical-align: middle;
-  }
-
-  > span {
-    overflow: hidden;
-    display: inline-block;
-    vertical-align: middle;
-  }
-}
-
 .gnb {
   background-color: transparent;
   display: flex;
@@ -573,4 +550,14 @@
 .article__tags__title {
   @extend %sr-only;
   display: block;
+}
+
+/** for livere **/
+div[id^="internal_trc_"]{
+  @include respond-to('small') {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

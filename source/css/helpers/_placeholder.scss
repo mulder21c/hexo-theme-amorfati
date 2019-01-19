@@ -1,0 +1,41 @@
+%clearfix {
+  &::after {
+    clear: both;
+    content: '';
+    display: table;
+    height: 0;
+  }
+}
+
+%sr-only {
+  border: 0;
+  margin: -1px;
+	padding: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+%tag {
+  box-sizing: border-box;
+  border-radius: 2px;
+  display: inline-block;
+  margin-right: .25em;
+  margin-bottom: .25rem;
+  padding: .2em .5em .2em 1.5em;
+  vertical-align: middle;
+
+  :first-child[class^="fa"] {
+    margin-left: -1em;
+    margin-right: .25em;
+    vertical-align: middle;
+  }
+
+  > span {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

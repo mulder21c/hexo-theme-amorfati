@@ -1,3 +1,9 @@
 - const hero = get_hero(page, theme);
+if theme.favicon
+  link(rel="preload" as="image"  href= url_for(theme.favicon))
+
+if theme.gravatar
+  link(rel="preload" as="image"  href= url_for(theme.gravatar))
+
 if hero.hasHero
   link(rel="preload" as="image"  href= url_for(hero.url))

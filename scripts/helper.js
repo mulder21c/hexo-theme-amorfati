@@ -78,27 +78,58 @@ hexo.extend.helper.register('get_hero', (page, theme) => {
     position: null,
     size: null,
   };
-  const data = page && page.hero || theme.hero;
-  let style = null;
-  let context = null;
 
-  if(data && typeof data === 'object') {
-    context = Object.assign({}, defaults, data);
-  }else if(data && typeof data === 'string') {
-    context = Object.assign({}, defaults, {url: data});
-  }
+  let hero = !!page.__post
+    ? typeof page.hero === 'object' ? page.hero : Object.assign({}, defaults, {url: page.hero})
+    : defaults;
 
-  if(!!context) {
-    style = `background-image: url(${context.url || context});`;
-    style += context.position ? `background-position: ${context.position};` : ``;
-    style += context.size ? `background-size: ${context.size};` : ``;
+  hero = hero.url
+    ? hero
+    : typeof theme.hero === 'object' ? theme.hero : Object.assign({}, defaults, {url: theme.hero});
+
+  if(!!hero) {
+    style = `background-image: url(${hero.url || hero});`;
+    style += hero.position ? `background-position: ${hero.position};` : ``;
+    style += hero.size ? `background-size: ${hero.size};` : ``;
   }
 
   return {
-    hasHero: !!context && !!context.url,
-    url: context && context.url,
-    width: context && context.width,
-    height: context && context.height,
+    hasHero: !!hero && !!hero.url,
+    url: hero && hero.url,
+    width: hero && hero.width,
+    height: hero && hero.height,
     style,
   }
+});
+
+/**
+ * @decription return css from front-matter for post-specific style
+ * @param {String} scss
+ * @return {String} processed css text through scss-renderer and autoprefixer
+ */
+hexo.extend.helper.register('scss_post', (scss) => {
+  if(!scss) return ``;
+
+  const mixin = fs.readFileSync(path.join(__dirname, "../source/css/helpers/_mixin.scss"));
+  const placeholder = fs.readFileSync(path.join(__dirname, "../source/css/helpers/_placeholder.scss"));
+  const functions = fs.readFileSync(path.join(__dirname, "../source/css/modules/_functions.scss"));
+  const variables = fs.readFileSync(path.join(__dirname, "../source/css/modules/_variables.scss"));
+
+  scss = `
+    ${mixin}
+    ${functions}
+    ${placeholder}
+    ${variables}
+  ` + scss;
+
+  const renderedCss = sass.renderSync({
+    data: scss,
+    outputStyle: "compressed",
+  });
+
+  const result = postcss([ autoprefixer({browsers: pkgConfig.browserslist}) ])
+  .process(renderedCss.css.toString(), { browsers: pkgConfig.browserslist })
+  .css;
+
+  return result;
 });
