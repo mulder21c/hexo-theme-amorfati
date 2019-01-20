@@ -104,6 +104,10 @@ body {
   box-sizing: border-box;
 }
 
+.contents--container {
+  flex: 0 0 auto;
+}
+
 .post-lists__container {
   box-sizing: border-box;
   flex: 0 1 100%;
