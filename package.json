@@ -22,8 +22,11 @@
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
     "autoprefixer": "^9.4.4",
     "node-sass": "^4.11.0",
-    "postcss": "^7.0.7"
+    "postcss": "^7.0.7",
+    "uglify-js": "^3.4.9"
   }
 }
