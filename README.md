@@ -192,7 +192,7 @@ webfonts:
 
   ```
 
-  **Caution**: Since the default font for the theme is `Noto Sans KR`, so if you want to use a different
+  **Note**: Since the default font for the theme is `Noto Sans KR`, so if you want to use a different
   font instead of the default font, you need to change the font name in the
   `source/css/partials/_typography.scss` file.
 
@@ -303,6 +303,19 @@ hero:
 ```
 
 - `hero`: in this case, image url you want to use as hero
+
+
+### Thumbnail for Post-list
+
+```yaml
+title:
+thumbnail:
+
+```
+
+`thumbnail`: The iamge url of the thumbnail you want to expose to the post list
+
+**Note:** *This config only affects the post list.*
 
 ### Post-specific Open Graph and JSONLD
 
