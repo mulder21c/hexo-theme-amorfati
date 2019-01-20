@@ -6,6 +6,11 @@ You can refer to [my blog](https://mulder21c.github.io) or [demo site](http://mu
 
 ![screenshot]()
 
+## Support Browsers
+
+- modern browsers
+- IE 10+
+
 ## Feature
 
 - Responsive design
@@ -42,7 +47,7 @@ First, clone this repository
 
 ```bash
 $ cd your/hexo/directory
-$ git clone -b v1.0 --single-branch --depth=0 themes/amorfati
+$ git clone -b v1.0.0 --single-branch --depth=1 themes/amorfati
 ```
 
 Then, install dependencies
@@ -376,3 +381,67 @@ scss: |
     }
   }
 ```
+
+## File Structure
+
+### Pug Structure
+
+    ./layout
+      ├── elements
+      │      ├── article
+      │      │     ├── meta.pug           # article's meta information to place at the top of article
+      │      │     └── tags.pug           # tag list to place at the end of article
+      │      │
+      │      ├── foot                   # Components used just above </body>
+      │      │     └── js-plugins.pug     # javascript component to place at the end of the document
+      │      │
+      │      ├── head                   # Components used in <head>...</head>
+      │      │     ├── analytics.pug
+      │      │     ├── icons.pug
+      │      │     ├── jsonld.pug
+      │      │     ├── links.pug
+      │      │     ├── opengraph.pug
+      │      │     ├── preload.pug
+      │      │     ├── style.pug
+      │      │     ├── title.pug
+      │      │     └── verify-website.pug
+      │      │
+      │      ├── comment.pug              # comment component
+      │      └── pagination.pug           # pagination component
+      │
+      ├── partials
+      │      ├── article.pug
+      │      ├── container.pug
+      │      ├── foot.pug
+      │      ├── footer.pug
+      │      ├── head.pug
+      │      ├── header.pug
+      │      ├── layout.pug
+      │      ├── post-list.pug
+      │      └── sidebar.pug
+      ├── archive.pug
+      ├── category.pug
+      ├── index.pug
+      ├── page.pug
+      ├── post.pug
+      └── tag.pug
+
+### SCSS Structure
+
+    ./source/css
+      ├── helpers
+      │      ├── _mixins.scss             # Most used mixins
+      │      └── _placeholder.scss        # Most used placeholder
+      │
+      ├── modules
+      │      ├── _functions.scss          # Global functions
+      │      ├── _reset.scss              # Reset
+      │      └── _variables.scss          # Global variables
+      │
+      ├── partials
+      │      ├── _elements.scss           # Set of elements
+      │      ├── _layout.scss             # Global parts of the layout
+      │      └── _typography.scss         # Typography settings and declarations
+      │
+      ├── dracula.scss                    # Highlight.js dracular theme
+      └── style.scss                      # Primary scss file
