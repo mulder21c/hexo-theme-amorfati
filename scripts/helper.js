@@ -1,3 +1,10 @@
+const sass = require("node-sass");
+const autoprefixer = require('autoprefixer');
+const postcss  = require('postcss');
+const path = require("path");
+const pkgConfig = require("../package.json");
+const fs = require("hexo-fs");
+
 /**
  * @description create menu list from theme config (_config.yml)
  * @param {Object} menus you should use `theme.menu` as value of this parameter
