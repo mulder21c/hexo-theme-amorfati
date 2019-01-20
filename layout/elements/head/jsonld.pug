@@ -39,7 +39,7 @@ if(is_post())
       "alternativeHeadline": !{page.subtitle ? `"${page.subtitle}"` : 'null'},
       "image": {
         "@type": "imageObject",
-        "url": !{representImg && representImg.url ? `"${representImg.url}"` : 'null'},
+        "url": !{representImg && representImg.url ? `"${url_for(representImg.url)}"` : 'null'},
         "width": !{representImg && representImg.width ? `"${representImg.width}"` : 'null'},
         "height": !{representImg && representImg.height ? `"${representImg.height}"` : 'null'}
       },

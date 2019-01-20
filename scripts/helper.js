@@ -87,14 +87,16 @@ hexo.extend.helper.register('get_hero', (page, theme) => {
     ? hero
     : typeof theme.hero === 'object' ? theme.hero : Object.assign({}, defaults, {url: theme.hero});
 
-  if(!!hero) {
-    style = `background-image: url(${hero.url || hero});`;
+  if(!!hero.url) {
+    style = `background-image: url(${hexo.extend.helper.store['url_for'].call(hexo, hero.url)});`;
     style += hero.position ? `background-position: ${hero.position};` : ``;
     style += hero.size ? `background-size: ${hero.size};` : ``;
+  }else {
+    style = ``;
   }
 
   return {
-    hasHero: !!hero && !!hero.url,
+    hasHero: !!hero.url,
     url: hero && hero.url,
     width: hero && hero.width,
     height: hero && hero.height,
