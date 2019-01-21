@@ -28,7 +28,7 @@
       subtitle: post.subtitle,
       tags: post.tags,
       categories: post.categories,
-      hero: typeof post.hero ==='object' ? post.hero.url || null : post.hero || null,
+      hero: !!post.hero && typeof post.hero ==='object' ? post.hero.url || null : post.hero || null,
       thumbnail: post.thumbnail,
       date: post.date,
       link: url_for(post.link || post.path),

@@ -87,12 +87,12 @@ hexo.extend.helper.register('get_hero', (page, theme) => {
   };
 
   let hero = !!page.__post
-    ? typeof page.hero === 'object' ? page.hero : Object.assign({}, defaults, {url: page.hero})
+    ? !!page.hero && typeof page.hero === 'object' ? page.hero : Object.assign({}, defaults, {url: page.hero})
     : defaults;
 
   hero = hero.url
     ? hero
-    : typeof theme.hero === 'object' ? theme.hero : Object.assign({}, defaults, {url: theme.hero});
+    : !!theme.hero && typeof theme.hero === 'object' ? theme.hero : Object.assign({}, defaults, {url: theme.hero});
 
   if(!!hero.url) {
     style = `background-image: url(${hexo.extend.helper.store['url_for'].call(hexo, hero.url)});`;
