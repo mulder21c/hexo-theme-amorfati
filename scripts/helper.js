@@ -33,7 +33,7 @@ hexo.extend.helper.register('list_menu', (menus, currPath, options) => {
     let isCurrent = currPath.replace(/\/*index.html$/, '') === menus[menu].replace(/^\/|index\.html$/g,'');
     html += `
     <li class="${opts.itemClass + (isCurrent ? ' ' + opts.currClass : '') }" >
-      <a href="${menus[menu]}" ${isCurrent ? 'aria-current="page"' : '' }>
+      <a href="${hexo.extend.helper.store['url_for'].call(hexo, menus[menu])}" ${isCurrent ? 'aria-current="page"' : '' }>
         ${menu.toLowerCase()}
       </a>
     </li>`;
@@ -64,7 +64,7 @@ hexo.extend.helper.register('list_external_links', (links, options) => {
   return links.reduce((html, item) => {
     html += `
       <li>
-        <a href="${item.url}" target="_blank" class="${opts.itemClass}">${item.name}</a>
+        <a href="${hexo.extend.helper.store['url_for'].call(hexo, item.url)}" target="_blank" class="${opts.itemClass}">${item.name}</a>
       </li>
     `;
     return html;
