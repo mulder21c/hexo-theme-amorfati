@@ -6,12 +6,8 @@ link(rel="stylesheet" href= url_for("/css/style.css"))
   post-specific styles
 if is_post() && page.style
   style.
-    !{page.style}
-//-
-  post-specific styles written in scss
-if is_post() && page.scss
-  style.
-    !{scss_post(page.scss)}
+    !{scss_post(page.style)}
+
 //-
   highlight theme
 if config.highlight && config.highlight.enable

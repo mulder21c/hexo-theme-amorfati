@@ -341,7 +341,7 @@ seo:
 
 ### Post-specific Style
 
-You can create post-specific additional styles with css or scss, and this style will be rendered
+You can create post-specific additional styles with css or SCSS, and this style will be rendered
 as `<style>...</style>` inside the head element.
 
 ```yaml
@@ -350,31 +350,11 @@ style:
 
 ```
 
-Or
-
-```yaml
-title:
-scss:
-
-```
-
 #### example
 
 ```yaml
 title:
 style: |
-  .float-left {
-    float: left;
-  }
-  .float-right {
-    float: right;
-  }
-
-```
-
-```yaml
-title:
-scss: |
   .article__content {
     small: {
       font-size: $smallest-font-size;
