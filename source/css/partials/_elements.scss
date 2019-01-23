@@ -551,6 +551,10 @@
   }
 }
 
+.article__tag {
+  margin: 1rem auto;
+}
+
 .article__tag__item {
   @extend %tag;
   background-color: $tag-tag-color;
