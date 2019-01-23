@@ -55,20 +55,27 @@ h6{
 
 .header {
   color: $white;
-  text-shadow: 1px 1px 0 rgba($black, 0.5), -1px -1px 1px rgba($black, 0.5);
+  text-shadow: 1px 1px 4px rgba($black, 0.9), -1px -1px 1px rgba($black, 0.5);
 }
 
 .gnb {
-  font-size: $larger-font-size;
+  font-size: $base-font-size;
   font-weight: 400;
 
+  @include respond-to('x-small') {
+    font-size: $large-font-size;
+  }
+  @include respond-to('small') {
+    font-size: $larger-font-size;
+  }
+
   > a {
-    color: darken($white, 20%);
+    color: darken($white, 5%);
   }
 
   .nav-toggle {
     font-size: $small-font-size;
-    text-shadow: 1px 1px 0 rgba($black, 0.5), -1px -1px 1px rgba($black, 0.25);
+    text-shadow: 1px 1px 2px rgba($black, 0.95), -1px -1px 1px rgba($black, 0.25);
     text-align: center;
   }
 }
