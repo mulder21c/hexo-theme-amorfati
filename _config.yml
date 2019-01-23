@@ -43,10 +43,10 @@ analytics:
 
 # web fonts
 webfonts:
-  uses: ['Noto Sans KR', 'Font Awesome']
+  uses: ['Noto Sans KR', 'Hack', 'Font Awesome']
   extraFonts:
-  #  - family:
-  #    url:
+    - family: 'Hack'
+      url: '/fonts/hack/hack.css'
 
 
 # Extenreal Links

@@ -15,10 +15,10 @@ html {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Noto Sans KR', sans-serif, serif;
+  font-family: 'Iropke Batang', '바탕체', serif;
   font-size: 100%;
   color: $black;
-  line-height: 1.6;
+  line-height: 1.8;
   word-break: break-word;
   word-wrap: break-word;
   text-size-adjust: none;
@@ -54,6 +54,7 @@ h6{
 }
 
 .header {
+  font-family: 'Noto Sans KR','sans-serif';
   color: $white;
   text-shadow: 1px 1px 4px rgba($black, 0.9), -1px -1px 1px rgba($black, 0.5);
 }
@@ -321,6 +322,7 @@ h6{
 
   pre[class*="language-"],
   code[class*="language-"]{
+    font-family: 'Hack', 'Courier New', Courier, monospace;
     font-size: inherit;
     white-space: pre;
   }
@@ -328,6 +330,22 @@ h6{
   :not(pre) > code[class*="language-"]{
     font-size: inherit;
     vertical-align: baseline;
+  }
+
+  sup[id^="fnref"] {
+    font-size: $smaller-font-size;
+
+    & > a {
+      position: relative;
+
+      &::before{
+        content: '[';
+      }
+
+      &::after {
+        content: ']';
+      }
+    }
   }
 }
 
