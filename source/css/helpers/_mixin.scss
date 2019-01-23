@@ -33,10 +33,10 @@
   margin-right: -1rem;
   width: calc(100% + 2rem);
 
-  @include respond-to('small') {
+  @include respond-to('x-small') {
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
+    width: auto;
   }
 }
