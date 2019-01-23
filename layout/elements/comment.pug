@@ -1,5 +1,5 @@
 if page.comment !== false && is_post() || is_page()
-  section.comment
+  .comment(role="region" aria-label="comments")
     if theme.liveRe && theme.liveRe.uid
       #lv-container(data-id="city", data-uid=theme.liveRe.uid)
 
