@@ -2,7 +2,7 @@
   if theme.profile && theme.profile.gravatar
     .gravatar
       img(src= url_for(theme.profile.gravatar) alt= `authored by ${config.author}` )
-  time.article__meta__time(datatime= date_xml(page.date))
+  time.article__meta__time(datetime= date_xml(page.date))
     span(aria-label="posted")
       span.fas.fa-calendar-day(aria-hidden="true")
     = full_date(page.date)

@@ -56,7 +56,7 @@
       nextUrl = `${baseUrl}/${page.next_link}`;
     }
 
-    url = url ? url.replace(/\/\//g, `/`) : url;
+    url = url ? url.replace(/[^http\:\/\/|https\:\/\/]\/\//g, `/`) : url;
     indexUrl = indexUrl ? indexUrl.replace(/\/\//g, `/`) : indexUrl;
     archivesUrl = archivesUrl ? archivesUrl.replace(/\/\//g, `/`) : archivesUrl;
     firstUrl = firstUrl ? firstUrl.replace(/\/\//g, `/`) : firstUrl;
