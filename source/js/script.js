@@ -122,7 +122,7 @@ const SlidingMenu = (() => {
 
       trigger.lastChild.textContent = `close`;
       trigger.setAttribute('aria-expanded', 'true');
-      setIntertness(panel);
+      setInertness(panel);
     }, 50)();
   };
 
@@ -140,9 +140,9 @@ const SlidingMenu = (() => {
   /**
    * set inert elements of the bottom page except menu element when the menu is opened
    * @private
-   * @function setIntertness
+   * @function setInertness
    */
-  const setIntertness = () => {
+  const setInertness = () => {
     const {
       inertOmmits,
       panel,
