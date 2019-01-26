@@ -39,9 +39,9 @@ const SlidingMenu = (() => {
    * @property {HTMLElement} props.trigger=null The element that triggers sliding panel
    * @property {HTMLElement} props.panel=null The element that is sliding panel
    * @property {NodeList} props.tabbableEls=null The tabbable elements inside sliding panel
-   * @property {firstTabbable} props.firstTabbable=null The first tabbable elements inside sliding panel
-   * @property {lastTabbable} props.lastTabbable=null The last tabbable elements inside sliding panel
-   * @property {inertOmmits} props.inertOmmits=null The selector for elements that should not be inert when sliding panel is opened
+   * @property {HTMLElement} props.firstTabbable=null The first tabbable elements inside sliding panel
+   * @property {HTMLElement} props.lastTabbable=null The last tabbable elements inside sliding panel
+   * @property {String} props.inertOmmits=null The selector for elements that should not be inert when sliding panel is opened
    */
   const props = {
     trigger: null,
