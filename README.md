@@ -4,7 +4,7 @@
 
 You can refer to [my blog](https://mulder21c.github.io) or [demo site](http://mulder21c.github.io/hexo-theme-amorfati)
 
-![screenshot]()
+![screenshot](./screenshot.png)
 
 ## Support Browsers
 
@@ -62,7 +62,7 @@ $ npm install
 
 ## Configuration
 
-See the [_config.yml.example]()
+See the [_config.yml.example](./_config.yml.example)
 
 ### Hero
 
@@ -74,13 +74,19 @@ hero:
   url:
   width:
   height:
+  size:
+  position:
 
 ```
 - `url`: image url you want to use as hero
 - `width`: width dimension
 - `height`: height dimension
+- `size`: a string that corresponds to the value of background-size.
+- `position`: a string that corresponds to the value of background-position.
 
-If you set the dimensions of the image, these values can be used in JSONLD. Or
+If you set the dimensions of the image, these values can be used in JSONLD.
+
+Or
 
 ```yaml
 hero:
@@ -95,6 +101,14 @@ hero:
   url: /upload/hero.jpg
   width: 980
   height: 550
+
+```
+```yaml
+hero:
+  url: /upload/hero.jpg
+  width: 980
+  height: 550
+  position: center top
 
 ```
 
@@ -293,11 +307,15 @@ hero:
   url:
   width:
   height:
+  size:
+  position:
 
 ```
 - `hero.url`: image url you want to use as hero
 - `hero.width`: width dimension
 - `hero.height`: height dimension
+- `hero.size`: a string that corresponds to the value of background-size.
+- `hero.position`: a string that corresponds to the value of background-position.
 
 Or,
 

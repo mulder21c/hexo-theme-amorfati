@@ -1,0 +1,66 @@
+# Header
+menu:
+  Home: /
+  Archives:
+
+
+# Favicon
+favicon:
+
+
+# Hero - Please specify width and height for structured data
+hero:
+  url:
+  width:
+  height:
+  size:
+  position:
+
+
+# Profile
+profile:
+  gravatar:
+  social:
+    github:
+    facebook:
+    linkedin:
+    instagram:
+    twitter:
+    flickr:
+    rss:
+
+
+# Site Verification
+site_verification:
+  enable:
+  google:
+  naver:
+  bing:
+
+
+# Analytics
+analytics:
+  google:
+  naver:
+
+
+# web fonts
+webfonts:
+  uses: ['Noto Sans KR', 'Font Awesome']
+  extraFonts:
+  #  - family: 'Hack'
+  #    url: '/fonts/hack/hack.css'
+
+
+# Extenreal Links
+links:
+  #  - name:
+  #    url:
+
+
+# Comments
+liveRe:
+  uid:
+
+disqus:
+  shortname:
