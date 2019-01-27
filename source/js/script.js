@@ -82,7 +82,6 @@ const SlidingMenu = (() => {
     // bind events for activating open/close slide menu
     panel.addEventListener('transitionend', handlerTransitionEvt, false);
     trigger.addEventListener('click', toggleNavigation, false);
-    document.addEventListener('keydown', handlerKeyEvt, false);
   };
 
   /**
@@ -115,6 +114,7 @@ const SlidingMenu = (() => {
       trigger,
     } = props;
     rootEl.classList.add('sidebar-opened');
+    document.addEventListener('keydown', handlerKeyEvt, false);
 
     debounce(() => {
       panel.classList.add('nav--animate');
@@ -135,6 +135,7 @@ const SlidingMenu = (() => {
 
     unsetInertness();
     panel.classList.remove('nav--animate');
+    document.removeEventListener('keydown', handlerKeyEvt, false);
   };
 
   /**
