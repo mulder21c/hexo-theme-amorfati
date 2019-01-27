@@ -43,7 +43,7 @@ analytics:
 
 # web fonts
 webfonts:
-  uses: ['Noto Sans KR', 'Hack', 'Font Awesome']
+  uses: ['Spoqa Han Sans', 'Hack', 'Font Awesome']
   extraFonts:
     - family: 'Hack'
       url: '/fonts/hack/hack.css'
