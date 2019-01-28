@@ -1,0 +1,2 @@
+div(class=['archive-list__container', !page.year ? 'archive-list--index' : '' ])
+  | !{list_archives({show_count:false, type: 'year', transform: name => `<b class="archive-list__item--year">${name}</b>년에 작성된 글`})}

@@ -342,6 +342,26 @@ h6{
   }
 }
 
+.archive-list__container {
+  font-size: $smaller-font-size;
+
+  .archive-list--index & {
+    font-size: $base-font-size;
+  }
+}
+
+.archive-list__item--year {
+  margin-right: .25em;
+  font-weight: 400;
+  font-style: italic;
+  color: $theme-color;
+
+  .archive-list--index & {
+    font-size: $jumbo-font-size;
+    font-weight: 700;
+  }
+}
+
 .footer {
   font-size: $small-font-size;
   text-align: center;

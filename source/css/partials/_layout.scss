@@ -108,7 +108,8 @@ body {
   flex: 0 0 auto;
 }
 
-.post-lists__container {
+.post-lists__container,
+.archive-list__container {
   box-sizing: border-box;
   flex: 0 1 100%;
   margin: 0;

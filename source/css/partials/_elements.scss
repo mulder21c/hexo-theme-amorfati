@@ -565,6 +565,34 @@
   display: block;
 }
 
+.archive-list {
+  list-style-type: none;
+  border-top: 1px dashed $muddy-color;
+  margin: 0;
+  padding: 1rem 0;
+
+  .archive-list-item {
+    padding: .25rem ;
+
+    ~ .archive-list-item {
+      border-top: 1px solid lighten($muddy-color, 40%);
+    }
+  }
+
+  .archive-list--index & {
+    border-top: 0;
+
+    .archive-list-item {
+      padding: 1rem ;
+
+      ~ .archive-list-item {
+        border-top-style: dashed;
+        border-top-color: $muddy-color;
+      }
+    }
+  }
+}
+
 /** for livere **/
 div[id^="internal_trc_"]{
   @include respond-to('small') {
