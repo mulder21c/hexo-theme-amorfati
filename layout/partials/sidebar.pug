@@ -42,3 +42,6 @@
         if social.flickr
           a.nav__sns__icon(href=social.flickr target="_blank" aria-label="flickr")
             span.fab.fa-flickr(aria-hidden="true")
+        if social.rss
+          a.nav__sns__icon(href= url_for(social.rss) target="_blank" aria-label="rss")
+            span.fas.fa-rss-square(aria-hidden="true")
