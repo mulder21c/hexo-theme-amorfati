@@ -1,5 +1,9 @@
 # hexo-theme-amorfati
 
+## Language
+
+[Korean](./documents/ko)
+
 ## Demo
 
 You can refer to [my blog](https://mulder21c.github.io) or [demo site](http://mulder21c.github.io/hexo-theme-amorfati)
@@ -38,7 +42,7 @@ You can refer to [my blog](https://mulder21c.github.io) or [demo site](http://mu
 - Webfont Loader
 - Author's SNS links
 - External links
-- Site verification & Analytics
+- Analytics
 
 
 ## Installation
@@ -47,7 +51,7 @@ First, clone this repository
 
 ```bash
 $ cd your/hexo/directory
-$ git clone -b v1.0.0 --single-branch --depth=1 themes/amorfati
+$ git clone -b v1.0.0 --single-branch --depth=1 https://github.com/mulder21c/hexo-theme-amorfati.git themes/amorfati
 ```
 
 Then, install dependencies
@@ -131,7 +135,7 @@ profile:
 - `gravatar`: If you set the value of this item, it will be exposed as author on the post page.
 - `social`: If you set each item, SNS link is exposed at the bottom of the sidebar navigation.
 
-#### example
+#### Example
 
 ```yaml
 profile:
@@ -158,7 +162,7 @@ site_verification:
 
 ```
 
-- `enable`: Whether or not to use size verification. <br>
+- `enable`: Whether or not to use site verification. <br>
   if set to `false`, then it does not apply even if each item has a value.
 - `google`: your google verification string
 - `naver`: your naver verification string
@@ -189,7 +193,7 @@ webfonts:
 - `uses`: An array of font names to use
 - `extraFronts`: An array of objects consisting of the name and URL of a font other than the default font
 
-#### examples
+#### Examples
 
 - use default fonts
 
@@ -212,7 +216,7 @@ webfonts:
   ```
 
   **Note**: Since the default font for the theme is `Noto Sans KR`, so if you want to use a different
-  font instead of the default font, you need to change the font name in the
+  font as the default font, you need to change the font name in the
   `source/css/partials/_typography.scss` file.
 
 ### External Link
@@ -226,7 +230,7 @@ webfonts:
 
 If set this item, the external links section within the sidebar navigation is exposed.
 
-#### example
+#### Examples
 
 ```yaml
   links:
@@ -370,7 +374,7 @@ style:
 
 ```
 
-#### example
+#### Example
 
 ```yaml
 title:
