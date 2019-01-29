@@ -1,3 +1,18 @@
+-
+  const full_url = url => {
+    if (!url) return;
+    const {origin, protocol} = new URL(config.url);
+
+    if(/^(https?|file|ftps?|mailto|javascript|data:image\/[^;]{2,9};):/i.test(url)) {
+      return url;
+    }
+    if(url.substring(0,2) == '//') {
+      url = url_for(url);
+      return protocol + url;
+    }
+
+    return origin + url;
+  }
 if(is_home())
   script(type="application/ld+json").
     {
@@ -26,9 +41,22 @@ if(is_post())
     }, ``).replace(/,+\s*$/, '');
   -
     let representImg = ((seoImage) => {
-      if(!seoImage) return !hero.hasHero ? null : hero;
+      let obj = {};
+      const defaults = {
+        url: null,
+        width: null,
+        height: null,
+      };
 
-      return typeof seoImage === 'string' ? Object.assign({}, defaults, {url: seoImage}) : Object.assign({}, defaults, seoImage);
+      if (!seoImage && !hero.hasHero) return null;
+
+      if(!seoImage) {
+        obj = typeof hero === 'string' ? Object.assign({}, defaults, {url: hero}) : Object.assign({}, defaults, hero);
+      }else {
+        obj = typeof seoImage === 'string' ? Object.assign({}, defaults, {url: seoImage}) : Object.assign({}, defaults, seoImage);
+      }
+
+      return obj;
     })(page.seo && page.seo.image);
 
   script(type="application/ld+json").
@@ -39,7 +67,7 @@ if(is_post())
       "alternativeHeadline": !{page.subtitle ? `"${page.subtitle}"` : 'null'},
       "image": {
         "@type": "imageObject",
-        "url": !{representImg && representImg.url ? `"${url_for(representImg.url)}"` : 'null'},
+        "url": !{representImg && representImg.url ? `"${full_url(representImg.url)}"` : 'null'},
         "width": !{representImg && representImg.width ? `"${representImg.width}"` : 'null'},
         "height": !{representImg && representImg.height ? `"${representImg.height}"` : 'null'}
       },
