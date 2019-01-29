@@ -249,6 +249,8 @@ Set the comment platform you want to use.
 
 ## Front matter
 
+You can see the whole configs in [post.md](./post.md).
+
 ### Subtitle
 
 ```yaml
