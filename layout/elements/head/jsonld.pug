@@ -44,7 +44,7 @@ if(is_post())
         "height": !{representImg && representImg.height ? `"${representImg.height}"` : 'null'}
       },
       "genre": !{page.seo && page.seo.genre ? `"${page.seo.genre}"` : 'null'},
-      "keywords": !{keyword || 'null'},
+      "keywords": !{`"${keyword}"` || 'null'},
       "editor": {
         "@type": "Person",
         "name": !{page.seo && page.seo.author ? `"${page.seo.author}"` : config.author ? `"${config.author}"` : 'null'}
