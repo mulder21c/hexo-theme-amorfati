@@ -2,7 +2,7 @@
 
 ## 언어
 
-[English](../../)
+[English](https://github.com/mulder21c/hexo-theme-amorfati)
 
 ## 데모
 
