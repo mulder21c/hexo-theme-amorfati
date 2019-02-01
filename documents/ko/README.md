@@ -50,6 +50,10 @@
 
 먼저, 이 저장소를 복제하세요.
 
+> 이 테마는 범용성을 위해(?) 기본 폰트로 Noto Sans KR을 사용합니다. [제작자 블로그](https://mulder21c.github.io)와
+> 같이 세리프 폰트를 기본 폰트로 사용한 테마는 별도 브랜치에 올라가 있습니다. [세리프 테마 안내](#세리프-테마-안내)를
+> 참고해주세요.
+
 ```bash
 $ cd your/hexo/directory
 $ git clone -b master --single-branch --depth=1 https://github.com/mulder21c/hexo-theme-amorfati.git themes/amorfati
@@ -448,3 +452,29 @@ style: |
       │
       ├── dracula.scss                    # Highlight.js dracular theme
       └── style.scss                      # Primary scss file
+
+## 세리프 테마 안내
+
+이 테마를 제작할 때 본래 의도는 블로그 글을 읽는 행위에 집중 할 수 있도록 최대한 부수적인 것들을 버리고, 폰트 역시
+긴 글을 읽을 때에도 피로감을 줄일 수 있도록 세리프 폰트를 기본 폰트로 사용하고 산세리프 폰트는 제목 정도에만
+사용하도록 하는 것이었습니다.
+
+때문에 웹 상에서도 잘 표현되는 세리프 폰트를 사용하기 위해 이롭게 바탕체를 기본 폰트로 하고, 헤더 영역 정도에만
+Spoqa Han Sans를 사용하도록 하여 현재 개인 블로그에 적용되어 있습니다.
+
+### 설치
+
+`master` 대신 `korean-serif` 브랜치를 체크아웃 받으시면 됩니다. <br>
+아직 clone 전인 경우라면 아래 코드를 참고하여 `korean-serif` 브랜치를 바로 클론 받으실 수 있습니다.
+
+```bash
+$ cd your/hexo/directory
+$ git clone -b korean-serif --single-branch --depth=1 https://github.com/mulder21c/hexo-theme-amorfati.git themes/amorfati
+```
+
+### 적용 폰트
+
+이롭게 바탕체와 Spoqa Han Sans를 각각 주/부 폰트로 사용함에 따라 각각의 일반 굵기에 해당하는 폰트를 `preload`로
+설정하여 폰트를 가능한 미리 다운로드 받아 둘 수 있도록 합니다. <br>
+따라서, 이 브랜치를 적용 후 주/부 폰트를 변경하실 경우에는 반드시 preload 값도 변경하셔야 불필요한 네트워크 사용을
+줄일 수 있습니다.
