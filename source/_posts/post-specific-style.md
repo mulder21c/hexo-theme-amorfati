@@ -1,6 +1,7 @@
 ---
 title: post-specific-style
 date: 2019-01-22 13:37:00
+category: Front matter
 style: |
   .article__content {
     p {
