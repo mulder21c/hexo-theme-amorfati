@@ -51,7 +51,7 @@ First, clone this repository
 
 ```bash
 $ cd your/hexo/directory
-$ git clone -b v1.0.0 --single-branch --depth=1 https://github.com/mulder21c/hexo-theme-amorfati.git themes/amorfati
+$ git clone -b master --single-branch --depth=1 https://github.com/mulder21c/hexo-theme-amorfati.git themes/amorfati
 ```
 
 Then, install dependencies
