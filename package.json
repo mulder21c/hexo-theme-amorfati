@@ -6,7 +6,7 @@
   "scripts": {
     "preinstall": "cd ../../ && npm install --save-dev hexo-renderer-jade",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "copyresource": "copy-resource.sh",
+    "copyresource": "node copy-resource.js",
     "postinstall": "npm run copyresource"
   },
   "keywords": [],
@@ -25,6 +25,7 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
     "autoprefixer": "^9.4.4",
+    "fs-extra": "^7.0.1",
     "node-sass": "^4.11.0",
     "postcss": "^7.0.7",
     "uglify-js": "^3.4.9"
