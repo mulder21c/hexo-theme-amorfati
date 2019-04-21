@@ -9,16 +9,17 @@ const webfontLoader = require.resolve('webfontloader');
 const hackFont = path.dirname(require.resolve('hack-font/README.md'));
 const iropke = path.join(__dirname, 'source/tmp');
 
-
-
 async function checkDirectory(name) {
   let sourcePath = path.join('./source', name);
 
-  await fs.access(path.join(__dirname, sourcePath), F_OK, (err) => {
-    if(err) fs.mkdirSync(path.join(__dirname, sourcePath));
-  });
-
-  return path.join(__dirname, sourcePath);
+  return new Promise( resolve => {
+    fs.access(path.join(__dirname, sourcePath), F_OK, (err) => {
+      if(err) {
+        fs.mkdirSync(path.join(__dirname, sourcePath));
+      }
+      resolve(path.join(__dirname, sourcePath))
+    });
+  })
 }
 
 checkDirectory('fonts')
