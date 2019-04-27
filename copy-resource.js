@@ -9,11 +9,14 @@ const webfontLoader = require.resolve('webfontloader');
 async function checkDirectory(name) {
   let sourcePath = path.join('./source', name);
 
-  await fs.access(path.join(__dirname, sourcePath), F_OK, (err) => {
-    if(err) fs.mkdirSync(path.join(__dirname, sourcePath));
-  });
-
-  return path.join(__dirname, sourcePath);
+  return new Promise( resolve => {
+    fs.access(path.join(__dirname, sourcePath), F_OK, (err) => {
+      if(err) {
+        fs.mkdirSync(path.join(__dirname, sourcePath));
+      }
+      resolve(path.join(__dirname, sourcePath))
+    });
+  })
 }
 
 checkDirectory('fonts')
