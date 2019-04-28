@@ -142,3 +142,48 @@ hexo.extend.helper.register('scss_post', (scss) => {
 
   return result;
 });
+
+/**
+ * @descript return full url from relative/absolute URL
+ * @param {String} url
+ * @return {String}
+ */
+hexo.extend.helper.register('full_url', (url) => {
+  if (!url) return;
+  const {origin, protocol} = new URL(hexo.config.url);
+
+  if(/^(https?|file|ftps?|mailto|javascript|data:image\/[^;]{2,9};):/i.test(url)) {
+    return url;
+  }
+  if(url.substring(0,2) == '//') {
+    url = hexo.extend.helper.store['url_for'].call(hexo, url);
+    return protocol + url;
+  }
+
+  return origin + url;
+})
+
+/**
+ * @descript return info of representive image
+ * @param {Object} seoImage seo data for the post
+ * @param {Object} hero hero data for the post
+ * @return {Object}
+ */
+hexo.extend.helper.register('get_represent_image', (seoImage, hero) => {
+  let obj = {};
+  const defaults = {
+    url: null,
+    width: null,
+    height: null,
+  };
+
+  if (!seoImage && !hero.hasHero) return null;
+
+  if(!seoImage) {
+    obj = typeof hero === 'string' ? Object.assign({}, defaults, {url: hero}) : Object.assign({}, defaults, hero);
+  }else {
+    obj = typeof seoImage === 'string' ? Object.assign({}, defaults, {url: seoImage}) : Object.assign({}, defaults, seoImage);
+  }
+
+  return obj;
+})
