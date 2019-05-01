@@ -3,6 +3,8 @@
 -
   const postList = page.posts && page.posts.reduce(function(result, post){
     let excerpt = post.excerpt.replace(/\>\</g, '>\n<') || post.content.substr(0, 1000).replace(/\>\</g, '>\n<');
+    let hero = get_hero(post, theme);
+    let representImg = get_represent_image(post.seo && post.seo.image, hero);
     result.jsonld.push({
       "@type": "BlogPosting",
       "headline": post.title || null,
@@ -21,7 +23,13 @@
       },
       "url": post.permalink || null,
       "dateCreated":  date(post.date, null) || null,
-      "datePublished": date(post.date, null) || null
+      "datePublished": date(post.date, null) || null,
+      "image": representImg && representImg.url ? {
+        "@type": "imageObject",
+        "url": representImg && representImg.url ? `${full_url(representImg.url)}` : null,
+        "width": representImg && representImg.width ? `${representImg.width}` : null,
+        "height": representImg && representImg.height ? `${representImg.height}` : null
+      } : null
     });
     result.list.push({
       title: post.title,

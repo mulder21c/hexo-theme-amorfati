@@ -17,6 +17,12 @@ if(is_home())
       "copyrightHolder": {
         "@type": "Person",
         "name": !{config.author ? `"${config.author}"` : 'null'}
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          !{ postList && postList.jsonld.length && JSON.stringify(postList.jsonld) }
+        ]
       }
     }
 
@@ -64,7 +70,7 @@ if(is_archive() || is_category() || is_tag())
     {
       "@context": "http://schema.org",
       "@type": "CollectionPage",
-      "name": !{title ? `"${title}"` : 'null'}
+      "name": !{title ? `"${title}"` : 'null'},
       "headline": !{title ? `"${title}"` : 'null'},
       "mainEntity": {
         "@type": "ItemList",
