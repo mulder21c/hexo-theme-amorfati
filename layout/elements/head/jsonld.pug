@@ -63,7 +63,7 @@ if(is_post())
       "url": !{page.permalink ? `"${page.permalink}"` : 'null'},
       "dateCreated": !{page.date ? `"${date(page.date, null)}"` : 'null'},
       "datePublished": !{page.date ? `"${date(page.date, null)}"` : 'null'},
-      "articleBody": !{meta_description ? `"${meta_description.replace(/\n/, ' ')}"` : 'null'}
+      "articleBody": !{meta_description ? `${JSON.stringify(meta_description.replace(/\n/, ' '))}` : 'null'}
     }
 if(is_archive() || is_category() || is_tag())
   script(type="application/ld+json").
