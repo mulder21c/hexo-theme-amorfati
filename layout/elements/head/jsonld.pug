@@ -1,18 +1,3 @@
--
-  const full_url = url => {
-    if (!url) return;
-    const {origin, protocol} = new URL(config.url);
-
-    if(/^(https?|file|ftps?|mailto|javascript|data:image\/[^;]{2,9};):/i.test(url)) {
-      return url;
-    }
-    if(url.substring(0,2) == '//') {
-      url = url_for(url);
-      return protocol + url;
-    }
-
-    return origin + url;
-  }
 if(is_home())
   script(type="application/ld+json").
     {
@@ -32,32 +17,22 @@ if(is_home())
       "copyrightHolder": {
         "@type": "Person",
         "name": !{config.author ? `"${config.author}"` : 'null'}
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          !{ postList && postList.jsonld.length && JSON.stringify(postList.jsonld) }
+        ]
       }
     }
+
 if(is_post())
   -
     let keyword = page.tags && page.tags.reduce((str, entry) => {
       return str += entry.name + ',';
     }, ``).replace(/,+\s*$/, '');
   -
-    let representImg = ((seoImage) => {
-      let obj = {};
-      const defaults = {
-        url: null,
-        width: null,
-        height: null,
-      };
-
-      if (!seoImage && !hero.hasHero) return null;
-
-      if(!seoImage) {
-        obj = typeof hero === 'string' ? Object.assign({}, defaults, {url: hero}) : Object.assign({}, defaults, hero);
-      }else {
-        obj = typeof seoImage === 'string' ? Object.assign({}, defaults, {url: seoImage}) : Object.assign({}, defaults, seoImage);
-      }
-
-      return obj;
-    })(page.seo && page.seo.image);
+    let representImg = get_represent_image(page.seo && page.seo.image, hero);
 
   script(type="application/ld+json").
     {
@@ -88,14 +63,14 @@ if(is_post())
       "url": !{page.permalink ? `"${page.permalink}"` : 'null'},
       "dateCreated": !{page.date ? `"${date(page.date, null)}"` : 'null'},
       "datePublished": !{page.date ? `"${date(page.date, null)}"` : 'null'},
-      "articleBody": !{meta_description ? `"${meta_description.replace(/\n/, ' ')}"` : 'null'}
+      "articleBody": !{meta_description ? `${JSON.stringify(meta_description.replace(/\n/, ' '))}` : 'null'}
     }
 if(is_archive() || is_category() || is_tag())
   script(type="application/ld+json").
     {
       "@context": "http://schema.org",
       "@type": "CollectionPage",
-      "name": !{title ? `"${title}"` : 'null'}
+      "name": !{title ? `"${title}"` : 'null'},
       "headline": !{title ? `"${title}"` : 'null'},
       "mainEntity": {
         "@type": "ItemList",

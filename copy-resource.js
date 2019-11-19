@@ -1,6 +1,5 @@
 const fs = require('fs-extra');
 const path = require('path');
-const glob = require('glob');
 const {F_OK, COPYFILE_FICLONE} = fs.constants;
 const fontAwesome = path.join(path.dirname(require.resolve('@fortawesome/fontawesome-free')), '../');
 const spoqaHanSans = path.dirname(require.resolve('spoqa-han-sans/README.md'));
@@ -8,6 +7,7 @@ const notoSansKr = path.dirname(require.resolve('typeface-noto-sans-kr'));
 const webfontLoader = require.resolve('webfontloader');
 const hackFont = path.dirname(require.resolve('hack-font/README.md'));
 const iropke = path.join(__dirname, 'source/tmp');
+const glob = require('glob');
 
 async function checkDirectory(name) {
   let sourcePath = path.join('./source', name);
@@ -116,10 +116,9 @@ checkDirectory('fonts')
 .catch( err => console.log("An error occurred", err) )
 
 checkDirectory('js')
-.then( base => {
-  fs.copyFile(webfontLoader, path.join(base, 'webfontloader.js'), COPYFILE_FICLONE, err => {
-    if(err) console.error(err)
-    console.log(`Copying WebfontLoader: copied!`)
+  .then( base => {
+    fs.copyFile(webfontLoader, path.join(base, 'webfontloader.js'), COPYFILE_FICLONE, err => {
+      if(err) console.error(err)
+      console.log(`Copying WebfontLoader: copied!`)
+    })
   })
-})
-.catch( err => console.log("An error occurred", err) )
