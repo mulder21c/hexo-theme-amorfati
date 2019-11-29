@@ -1,0 +1,61 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>post-specific-style - Hexo</title><!-- Links--><link rel="canonical" href="https://mulder21c.github.io/hexo-theme-amorfati/2019/01/22/post-specific-style"><!-- preload--><link rel="preload" as="font" href="/hexo-theme-amorfati/fonts/iropke/IropkeBatangM.woff" crossorigin="anonymous"><link rel="preload" as="font" href="/hexo-theme-amorfati/fonts/spoqahansans/SpoqaHanSansRegular.woff2" crossorigin="anonymous"><!-- Icons--><!-- open graph--><meta name="description" content="You can generate any post-specific additional styles in css or SCSS. Since it is intended to include _variables.scss, _mixins.scss, _placeholder.scss and _function.scss, you can use the variables, mix">
+<meta property="og:type" content="article">
+<meta property="og:title" content="post-specific-style">
+<meta property="og:url" content="https://mulder21c.github.io/hexo-theme-amorfati/2019/01/22/post-specific-style/">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="You can generate any post-specific additional styles in css or SCSS. Since it is intended to include _variables.scss, _mixins.scss, _placeholder.scss and _function.scss, you can use the variables, mix">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-21T06:32:35.420Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="post-specific-style">
+<meta name="twitter:description" content="You can generate any post-specific additional styles in css or SCSS. Since it is intended to include _variables.scss, _mixins.scss, _placeholder.scss and _function.scss, you can use the variables, mix"><!-- verify website ownership--><!-- styles--><link rel="stylesheet" href="/hexo-theme-amorfati/css/style.css"><style>.article__content p{-webkit-transform:skew(-10deg, 0);transform:skew(-10deg, 0)}@media (min-width: 736px){.article__content p{color:#00f}}
+
+</style><link rel="stylesheet" href="/hexo-theme-amorfati/css/dracula.css"><link rel="stylesheet" href="/hexo-theme-amorfati/fonts/iropke/iropke.css"><link rel="stylesheet" href="/hexo-theme-amorfati/fonts/notosanskr/NotoSansKR.css"><!-- JSON LD for SEO--><script type="application/ld+json">{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "post-specific-style",
+  "alternativeHeadline": null,
+  "image": {
+    "@type": "imageObject",
+    "url": null,
+    "width": null,
+    "height": null
+  },
+  "genre": null,
+  "keywords": "",
+  "editor": {
+    "@type": "Person",
+    "name": "John Doe"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "John Doe"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "John Doe"
+  },
+  "url": "https://mulder21c.github.io/hexo-theme-amorfati/2019/01/22/post-specific-style/",
+  "dateCreated": "2019-01-22",
+  "datePublished": "2019-01-22",
+  "articleBody": "You can generate any post-specific additional styles in css or SCSS. Since it is intended to include _variables.scss, _mixins.scss, _placeholder.scss and _function.scss, you can use the variables, mixins, placeholders and functions defined in the SCSS sources. It also includes autoprefixer and compressor.   Example"
+}</script><!--scripts--></head><body class="post"><header class="header hero"><div class="hero-wrapper"><div class="gnb"><a href="/hexo-theme-amorfati/">Hexo</a><button class="nav-toggle" type="button" aria-haspopup="true" aria-controls="navigation"><span></span><span></span><span></span>menu</button></div><h1 class="header__title">post-specific-style</h1></div></header><div class="contents--container" role="main"><article class="article"><div class="article__meta"><time class="article__meta__time" datetime="2019-01-22T04:37:00.000Z"><span aria-label="posted"><span class="fas fa-calendar-day" aria-hidden="true"></span></span>2019-01-22 13:37:00</time><div class="article__meta__category"><span aria-label="category"><span class="fas fa-archive" aria-hidden="true"></span></span><a class="article__meta__category__item" href="/hexo-theme-amorfati/categories/Front-matter/">Front matter</a></div></div><div class="article__content"><p>You can generate any post-specific additional styles in css or SCSS.</p>
+<p>Since it is intended to include <code>_variables.scss</code>, <code>_mixins.scss</code>, <code>_placeholder.scss</code> and <code>_function.scss</code>, you can use the variables, mixins, placeholders and functions defined in the SCSS sources.</p>
+<p>It also includes autoprefixer and compressor.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">post-specific-style</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2019</span><span class="bullet">-01</span><span class="bullet">-22</span> <span class="number">13</span><span class="string">:37:00</span></span><br><span class="line"><span class="attr">style:</span> <span class="string">|</span></span><br><span class="line"><span class="string">  .article__content &#123;</span></span><br><span class="line"><span class="string">    p &#123;</span></span><br><span class="line"><span class="string"></span><span class="attr">      transform:</span> <span class="string">skew(-10deg,</span> <span class="number">0</span><span class="string">);</span></span><br><span class="line">      <span class="string">@include</span> <span class="string">respond-to('medium')</span> <span class="string">&#123;</span></span><br><span class="line"><span class="attr">        color:</span> <span class="comment">#00f;</span></span><br><span class="line">      <span class="string">&#125;</span></span><br><span class="line">    <span class="string">&#125;</span></span><br><span class="line">  <span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Rendering-Result"><a href="#Rendering-Result" class="headerlink" title="Rendering Result"></a>Rendering Result</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .article__content p&#123;-webkit-transform:skew(-10deg, 0);transform:skew(-10deg, 0)&#125;@media (min-width: 736px)&#123;.article__content p&#123;color:#00f&#125;&#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure></div></article><div class="comment__container" role="region" aria-label="comments"></div></div><footer class="footer"><p class="credit">Powered by  <a href="https://hexo.io/" rel="external noreferrer" target="_blank">Hexo</a>. Theme by  <a href="https://github.com/mulder21c" rel="external noreferrer" target="_blank">mulder21c</a></p></footer><div class="nav" aria-hidden="true"><nav class="nav--container" id="navigation" aria-labelledby="nav__heading"><h2 class="nav__heading" id="nav__heading">Navigation</h2><hr class="nav__seperator"><ul class="menu-list">
+    <li class="menu-item">
+      <a href="/hexo-theme-amorfati/">
+        home
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="/hexo-theme-amorfati/archives">
+        archives
+      </a>
+    </li></ul><hr class="nav__seperator"><h3 class="nav__heading--sub">Categories</h3><ul class="category-list"><li class="category-list-item"><a class="category-list-link current" href="/hexo-theme-amorfati/categories/Front-matter/">Front matter</a></li><li class="category-list-item"><a class="category-list-link" href="/hexo-theme-amorfati/categories/examples/">examples</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/hexo-theme-amorfati/categories/examples/category/">category</a></li><li class="category-list-item"><a class="category-list-link" href="/hexo-theme-amorfati/categories/examples/tag/">tag</a></li></ul></li></ul></nav></div><script src="/hexo-theme-amorfati/js/webfontloader.js"></script><script>WebFont.load({
+  custom: {
+    families: ["Spoqa Han Sans", "Hack", "Font Awesome"],
+    urls: ["/hexo-theme-amorfati/fonts/spoqahansans/SpoqaHanSans-kr.css", "/hexo-theme-amorfati/fonts/hack/hack.css", "/hexo-theme-amorfati/fonts/fontawesome/fontawesome.css"]
+  }
+});</script><script src="/hexo-theme-amorfati/js/script.js"></script></body></html>
