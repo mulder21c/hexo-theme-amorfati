@@ -64,7 +64,7 @@ hexo.extend.helper.register('list_external_links', (links, options) => {
   return links.reduce((html, item) => {
     html += `
       <li>
-        <a href="${hexo.extend.helper.store['url_for'].call(hexo, item.url)}" target="_blank" class="${opts.itemClass}">${item.name}</a>
+        <a href="${item.url}" target="_blank" class="${opts.itemClass}">${item.name}</a>
       </li>
     `;
     return html;
