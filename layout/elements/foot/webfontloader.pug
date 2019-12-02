@@ -6,7 +6,7 @@
       "Font Awesome": url_for("/fonts/fontawesome/fontawesome.css"),
     };
     extra && extra.forEach((font) => {
-      defaults[font.family] = url_for(font.url)
+      defaults[font.family] = resolve_url(font.url)
     });
     return defaults;
   })(theme.webfonts.extraFonts);

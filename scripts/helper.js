@@ -64,7 +64,7 @@ hexo.extend.helper.register('list_external_links', (links, options) => {
   return links.reduce((html, item) => {
     html += `
       <li>
-        <a href="${item.url}" target="_blank" class="${opts.itemClass}">${item.name}</a>
+        <a href="${hexo.extend.helper.store['resolve_url'].call(hexo, item.url)}" target="_blank" class="${opts.itemClass}">${item.name}</a>
       </li>
     `;
     return html;
@@ -186,4 +186,10 @@ hexo.extend.helper.register('get_represent_image', (seoImage, hero) => {
   }
 
   return obj;
-})
+});
+
+hexo.extend.helper.register('resolve_url', (url) => {
+  const hasProtocol = /^http|\/\//.test(url);
+
+  return hasProtocol ? url : url = hexo.extend.helper.store['url_for'].call(hexo, url);
+});
