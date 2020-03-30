@@ -14,8 +14,12 @@
         "name": config.author || null
       },
       "publisher": {
-        "@type": "Person",
-        "name": config.author || null
+        "@type": "Organization",
+        "name": config.author || null,
+        "logo": {
+          "@type": "imageObject",
+          "url": full_url(theme.profile.gravatar) || null
+        }
       },
       "author": {
         "@type": "Person",
