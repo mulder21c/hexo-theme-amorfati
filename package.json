@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "preinstall": "cd ../../ && npm install --save-dev hexo-renderer-jade && git clone https://github.com/iropke/font-iropke-batang.git themes/amorfati/source/tmp",
+=======
+    "preinstall": "cd ../../ && npm install --save-dev hexo-renderer-pug",
+>>>>>>> fixup/node-12
     "test": "echo \"Error: no test specified\" && exit 1",
     "copyresource": "node copy-resource.js",
     "postinstall": "npm run copyresource"
@@ -16,20 +20,20 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.6.3",
     "hack-font": "^3.3.0",
+    "@fortawesome/fontawesome-free": "^5.13.0",
     "spoqa-han-sans": "^2.1.2",
     "typeface-noto-sans-kr": "0.0.63",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.3",
-    "autoprefixer": "^9.4.4",
-    "fs-extra": "^7.0.1",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "autoprefixer": "^9.7.5",
+    "fs-extra": "^9.0.0",
     "glob": "^7.1.6",
-    "node-sass": "^4.11.0",
-    "postcss": "^7.0.7",
-    "uglify-js": "^3.4.9"
+    "node-sass": "^4.13.1",
+    "postcss": "^7.0.27",
+    "uglify-js": "^3.8.1"
   }
 }
