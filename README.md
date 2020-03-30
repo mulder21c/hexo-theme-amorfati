@@ -57,12 +57,15 @@ $ git clone -b master --single-branch --depth=1 https://github.com/mulder21c/hex
 Then, install dependencies
 
 > This process include installing web fonts required for theme and inserting font and CSS files into
-> theme's directory. Refer to `copy-resource.sh` file.
+> theme's directory. Refer to `copy-resource.js` file.
 
 ```bash
 $ cd themes/amorfati
 $ npm install
 ```
+
+**note**: When you update from version 1.0.4 or lower you should remove
+`hexo-server-jade`. It was deprecated, so that I replaced that renderer to `hexo-server-pug`
 
 ## Configuration
 
