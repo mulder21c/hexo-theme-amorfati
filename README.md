@@ -1,3 +1,12 @@
+# ⛔️ DEPRECATED - no longer actively maintained
+
+This theme is no longer managed because many changes are required to support the current version of hexo.  
+I'm working on a new version of the theme [here](https://github.com/mulder21c/hexo-theme-amorfati-v2).
+
+You can only use this theme in hexo 4.x.
+
+---
+
 # hexo-theme-amorfati
 
 ## Language
